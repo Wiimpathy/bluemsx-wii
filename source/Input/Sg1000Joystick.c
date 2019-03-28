@@ -26,7 +26,7 @@
 ******************************************************************************
 */
 #include "Sg1000Joystick.h"
-#include "../Input/InputEvent.h"
+#include "InputEvent.h"
 
 #include <stdlib.h>
 

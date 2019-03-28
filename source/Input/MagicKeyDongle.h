@@ -28,7 +28,7 @@
 #ifndef MAGIC_KEY_DONGLE_H
 #define MAGIC_KEY_DONGLE_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "MsxJoystickDevice.h"
 
 typedef struct MagicKeyDongle MagicKeyDongle;

@@ -28,11 +28,11 @@
 #ifndef BOARD_H
 #define BOARD_H
  
-#include "../Common/MsxTypes.h"
-#include "../Media/MediaDb.h"
-#include "../Board/Machine.h"
-#include "../VideoChips/VDP.h"
-#include "../SoundChips/AudioMixer.h"
+#include "MsxTypes.h"
+#include "MediaDb.h"
+#include "Machine.h"
+#include "VDP.h"
+#include "AudioMixer.h"
 #include <stdio.h>
 
 typedef struct {
@@ -82,10 +82,6 @@ typedef struct {
 
     void   (*changeCartridge)(void*, int, int);
 } BoardInfo;
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 void boardInit(UInt32* systemTime);
 
@@ -202,10 +198,6 @@ void boardSetVideoAutodetect(int value);
 int  boardGetVideoAutodetect();
 
 void boardSetPeriodicCallback(BoardTimerCb cb, void* reference, UInt32 frequency);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* BOARD_H */
 

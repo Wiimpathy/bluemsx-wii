@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_RTYPE_H
 #define ROMMAPPER_RTYPE_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperRTypeCreate(char* filename, UInt8* romData, 
                          int size, int slot, int sslot, int startPage);

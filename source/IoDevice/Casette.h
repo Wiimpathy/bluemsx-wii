@@ -28,7 +28,7 @@
 #ifndef CASSETTE_H
 #define CASSETTE_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef enum { TAPE_ASCII = 0, TAPE_BINARY, TAPE_BASIC, TAPE_CUSTOM } TapeContentType;
 
@@ -39,10 +39,6 @@ typedef struct {
     TapeContentType type;
     char            fileName[8];
 } TapeContent;
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 void   tapeSetDirectory(char* baseDir, char* prefix);
 int    tapeInsert(char *name, const char *fileInZipFile);
@@ -62,9 +58,5 @@ UInt8 tapeWrite(UInt8 value);
 UInt8 tapeRead(UInt8* value);
 UInt8 tapeReadHeader();
 UInt8 tapeWriteHeader();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

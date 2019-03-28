@@ -25,14 +25,14 @@
 **
 ******************************************************************************
 */
-#include "../Input/Sg1000JoyIo.h"
+#include "Sg1000JoyIo.h"
 #include "Sg1000Joystick.h"
 #include "Sg1000JoystickDevice.h"
-#include "../Input/JoystickPort.h"
-#include "../Input/InputEvent.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Media/MediaDb.h"
+#include "JoystickPort.h"
+#include "InputEvent.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "MediaDb.h"
 
 #include "SviJoystick.h"
 

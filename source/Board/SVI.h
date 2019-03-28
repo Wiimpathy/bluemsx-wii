@@ -28,7 +28,7 @@
 #ifndef SVI_H
 #define SVI_H
  
-#include "../Board/Board.h"
+#include "Board.h"
 
 int sviCreate(Machine* machine, 
               VdpSyncMode vdpSyncMode,

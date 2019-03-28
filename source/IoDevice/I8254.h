@@ -28,7 +28,7 @@
 #ifndef I8254_H
 #define I8254_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef void (*I8254Out) (void*, int);
 

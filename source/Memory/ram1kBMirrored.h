@@ -28,7 +28,7 @@
 #ifndef RAM_1KB_MIRRORED_H
 #define RAM_1KB_MIRRORED_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int ramMirroredCreate(int size, int slot, int sslot, int startPage, UInt32 ramBlockSize, 
                       UInt8** ramPtr, UInt32* ramSize);

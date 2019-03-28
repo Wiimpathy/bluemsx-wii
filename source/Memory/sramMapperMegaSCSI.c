@@ -69,12 +69,12 @@
  */
 #include "sramMapperMegaSCSI.h"
 #include "MegaSCSIsub.h"
-#include "../IoDevice/MB89352.h"
-#include "../Memory/DeviceManager.h"
-#include "../Media/MediaDb.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/sramLoader.h"
+#include "MB89352.h"
+#include "DeviceManager.h"
+#include "MediaDb.h"
+#include "SaveState.h"
+#include "SlotManager.h"
+#include "sramLoader.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -314,7 +314,7 @@ int sramMapperMegaSCSICreate(char* filename, UInt8* buf, int size, int pSlot, in
 
 #ifdef MEGASCSIDEBUG
     if (!megascsiTotal) {
-        logFd = archFileOpen(MEGASCSIDEBUG, "w");
+        logFd = fopen(MEGASCSIDEBUG, "w");
     }
     ++megascsiTotal;
     DBGLOG2("%s %d: create\n", megascsiName[rm->type], megascsiTotal);

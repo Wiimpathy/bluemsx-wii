@@ -17,7 +17,7 @@
 
 #include "ScsiDefs.h"
 #include "ScsiDevice.h"
-#include "../IoDevice/Disk.h"
+#include "Disk.h"
 #include <stdlib.h>
 
 

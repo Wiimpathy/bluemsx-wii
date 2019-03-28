@@ -28,7 +28,7 @@
 #ifndef MSX_H
 #define MSX_H
  
-#include "../Board/Board.h"
+#include "Board.h"
 
 int msxCreate(Machine* machine, 
               VdpSyncMode vdpSyncMode,

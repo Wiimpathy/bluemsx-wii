@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_MOONSOUND_H
 #define ROMMAPPER_MOONSOUND_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMoonsoundCreate(char* filename, UInt8* romData, int size, int sramSize);
 

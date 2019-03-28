@@ -28,17 +28,9 @@
 #ifndef ARCH_INPUT_H
 #define ARCH_INPUT_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef enum { AM_DISABLE = 0, AM_ENABLE_MOUSE, AM_ENABLE_LASER } AmEnableMode;
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-UInt8 archJoystickGetState(int joystickNo);
-int  archJoystickGetCount();
-char* archJoystickGetName(int index);
 
 void  archMouseEmuEnable(AmEnableMode mode);
 void archMouseSetForceLock(int lock);
@@ -56,9 +48,5 @@ int   archKeyboardIsKeySelected(int msxKeyCode);
 char* archKeyconfigSelectedKeyTitle();
 char* archKeyconfigMappedToTitle();
 char* archKeyconfigMappingSchemeTitle();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

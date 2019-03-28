@@ -28,7 +28,7 @@
 #ifndef I8251_H
 #define I8251_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef int  (*I8251Transmit) (void*, UInt8);
 typedef int  (*I8251Signal) (void*);

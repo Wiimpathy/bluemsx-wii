@@ -28,11 +28,11 @@
 ******************************************************************************
 */
 #include "JoystickIO.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../IoDevice/Led.h"
-#include "../IoDevice/Switches.h"
-#include "../Arch/ArchInput.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Led.h"
+#include "Switches.h"
+#include "ArchInput.h"
 #include <stdlib.h>
 #include <string.h>
 

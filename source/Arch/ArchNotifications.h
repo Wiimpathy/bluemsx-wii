@@ -28,20 +28,16 @@
 #ifndef ARCH_NOTIFICATIONS_H
 #define ARCH_NOTIFICATIONS_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef enum { SC_NORMAL, SC_SMALL, SC_LARGE } ScreenCaptureType;
 void* archScreenCapture(ScreenCaptureType type, int* bitmapSize, int onlyBmp);
-#ifdef BLUEMSXWII
+#ifdef WII
 int archScreenCaptureToFile(ScreenCaptureType type, const char *fname);
 #endif
 
 void archUpdateEmuDisplayConfig();
 int  archUpdateEmuDisplay(int synchronous);
 
-#ifdef BLUEMSXWII
+#ifdef WII
 void archDiskQuickChangeNotify(int driveId, char* fileName, const char* fileInZipFile);
 #else
 void archDiskQuickChangeNotify();
@@ -66,9 +62,5 @@ void* archWindowCreate(struct Theme* theme, int childWindow);
 void archWindowStartMove();
 void archWindowMove();
 void archWindowEndMove();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

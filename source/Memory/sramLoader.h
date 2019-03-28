@@ -28,7 +28,7 @@
 #ifndef SRAM_LOADER_H
 #define SRAM_LOADER_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 char* sramCreateFilename(char* romFilename);
 char* sramCreateFilenameWithSuffix(char* romFilename, char* suffix, char* ext);

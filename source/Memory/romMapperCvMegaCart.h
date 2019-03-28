@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_CV_MEGACART_H
 #define ROMMAPPER_CV_MEGACART_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperCvMegaCartCreate(char* filename, UInt8* romData, 
                               int size, int slot, int sslot, int startPage);

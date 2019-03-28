@@ -45,11 +45,11 @@
 
 
 #include "MsxAsciiLaser.h"
-#include "../Input/InputEvent.h"
-#include "../Arch/ArchInput.h"
-#include "../VideoChips/FrameBuffer.h"
-#include "../Board/Board.h"
-#include "../VideoChips/VDP.h"
+#include "InputEvent.h"
+#include "ArchInput.h"
+#include "FrameBuffer.h"
+#include "Board.h"
+#include "VDP.h"
 #include <stdlib.h>
 
 

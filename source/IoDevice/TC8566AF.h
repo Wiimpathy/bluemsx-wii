@@ -28,7 +28,7 @@
 #ifndef TC8566AF_H
 #define TC8566AF_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct TC8566AF TC8566AF;
 

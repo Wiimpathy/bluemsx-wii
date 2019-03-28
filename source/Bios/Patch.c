@@ -25,13 +25,13 @@
 **
 ******************************************************************************
 */
-#include "../Z80/R800.h"
-#include "../Board/Board.h"
-#include "../IoDevice/Casette.h"
-#include "../IoDevice/Disk.h"
-#include "../Memory/IoPort.h"
-#include "../Memory/SlotManager.h"
-#include "../IoDevice/Led.h"
+#include "R800.h"
+#include "Board.h"
+#include "Casette.h"
+#include "Disk.h"
+#include "IoPort.h"
+#include "SlotManager.h"
+#include "Led.h"
 #include <string.h>
 
  typedef struct {

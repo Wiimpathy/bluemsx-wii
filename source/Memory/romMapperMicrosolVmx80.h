@@ -29,7 +29,7 @@
 #ifndef MICROSOL_VMX80_H
 #define MICROSOL_VMX80_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMicrosolVmx80Create(char* filename, UInt8* romData, int size,
                                  int slot, int sslot, int startPage,

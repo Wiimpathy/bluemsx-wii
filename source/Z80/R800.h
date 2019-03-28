@@ -80,7 +80,7 @@
 #ifndef R800_H
 #define R800_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 /*****************************************************
 ** Configuration options

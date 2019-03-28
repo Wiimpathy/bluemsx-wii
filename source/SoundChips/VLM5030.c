@@ -27,10 +27,10 @@
 */
 #include "VLM5030.h"
 #include "MameVLM5030.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
 #include <stdlib.h>
 #include <string.h>
 

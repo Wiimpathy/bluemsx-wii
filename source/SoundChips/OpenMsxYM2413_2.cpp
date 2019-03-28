@@ -6,7 +6,7 @@
 #include "OpenMsxYM2413_2.h"
 
 extern "C" {
-#include "../Utils/SaveState.h"
+#include "SaveState.h"
 }
 
 #ifdef assert
@@ -19,8 +19,6 @@ extern "C" {
 #include <algorithm>
 
 using std::string;
-
-#define MIN(a,b) (((a)<(b))?(a):(b))
 
 static const int CLOCK_FREQ = 3579545;
 static const double PI = 3.14159265358979323846;
@@ -127,7 +125,7 @@ int OpenYM2413_2::lin2db(double d)
 {
 	return (d == 0)
 		? DB_MUTE - 1
-		: MIN(-(int)(20.0 * log10(d) / DB_STEP), DB_MUTE - 1); // 0 - 127
+		: std::min(-(int)(20.0 * log10(d) / DB_STEP), DB_MUTE - 1); // 0 - 127
 }
 
 // Sin Table

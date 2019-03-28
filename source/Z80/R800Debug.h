@@ -32,8 +32,8 @@
 #ifndef R800_DEBUG_H
 #define R800_DEBUG_H
  
-#include "../Common/MsxTypes.h"
-#include "../Z80/R800.h"
+#include "MsxTypes.h"
+#include "R800.h"
 
 typedef struct R800Debug R800Debug;
 

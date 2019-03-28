@@ -25,7 +25,7 @@
 **
 ******************************************************************************
 */
-#include "../Debugger/DebugDeviceManager.h"
+#include "DebugDeviceManager.h"
 #include <stdlib.h>
 #include <string.h>
 

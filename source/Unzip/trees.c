@@ -329,7 +329,7 @@ local void tr_static_init()
 
 void gen_trees_header()
 {
-    FILE *header = archFileOpen("trees.h", "w");
+    FILE *header = fopen("trees.h", "w");
     int i;
 
     Assert (header != NULL, "Can't open trees.h");

@@ -28,8 +28,8 @@
 #ifndef SCSIDEVICE_H
 #define SCSIDEVICE_H
 
-#include "../Common/MsxTypes.h"
-#include "../Arch/ArchCdrom.h"
+#include "MsxTypes.h"
+#include "ArchCdrom.h"
 
 #define BIT_SCSI2           0x0001
 #define BIT_SCSI2_ONLY      0x0002

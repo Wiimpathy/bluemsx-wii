@@ -25,16 +25,16 @@
 **
 ******************************************************************************
 */
-#include "../IoDevice/Sf7000PPI.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/IoPort.h"
-#include "../IoDevice/I8255.h"
+#include "Sf7000PPI.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SlotManager.h"
+#include "IoPort.h"
+#include "I8255.h"
 #include "NEC765.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Language.h"
 #include <stdlib.h>
 
 

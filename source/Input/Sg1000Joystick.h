@@ -28,7 +28,7 @@
 #ifndef SG1000_JOYSTICK_H
 #define SG1000_JOYSTICK_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "Sg1000JoystickDevice.h"
 
 typedef struct Sg1000Joystick Sg1000Joystick;

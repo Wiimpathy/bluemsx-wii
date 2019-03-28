@@ -28,7 +28,7 @@
 #ifndef ATMEL_PEROM_H
 #define ATMEL_PEROM_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct AtmelPerom AtmelPerom;
 

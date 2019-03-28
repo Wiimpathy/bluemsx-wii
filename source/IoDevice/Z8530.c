@@ -26,8 +26,8 @@
 ******************************************************************************
 */
 #include "Z8530.h"
-#include "../Utils/SaveState.h"
-#include "../Board/Board.h"
+#include "SaveState.h"
+#include "Board.h"
 #include <stdlib.h>
 
 struct Z8530

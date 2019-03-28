@@ -28,7 +28,7 @@
 #ifndef SVI328_PRN_H
 #define SVI328_PRN_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperSvi328PrnCreate(void);
 

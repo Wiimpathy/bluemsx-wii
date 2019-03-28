@@ -33,9 +33,9 @@
 #include "MB89352.h"
 #include "ScsiDevice.h"
 #include "ScsiDefs.h"
-#include "../Arch/ArchCdrom.h"
-#include "../IoDevice/Disk.h"
-#include "../Utils/SaveState.h"
+#include "ArchCdrom.h"
+#include "Disk.h"
+#include "SaveState.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,8 +43,8 @@
 //#define USE_DEBUGGER
 
 #ifdef USE_DEBUGGER
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Language/Language.h"
+#include "DebugDeviceManager.h"
+#include "Language.h"
 #endif
 
 #define TARGET spc->scsiDevice[spc->targetId]

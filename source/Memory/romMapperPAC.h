@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_PAC_H
 #define ROMMAPPER_PAC_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperPACCreate(char* filename, UInt8* romData, 
                        int size, int slot, int sslot, int startPage);

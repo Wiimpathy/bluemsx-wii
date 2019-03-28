@@ -28,7 +28,7 @@
 #ifndef IO_PORT_H
 #define IO_PORT_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef UInt8 (*IoPortRead)(void*, UInt16);
 typedef void  (*IoPortWrite)(void*, UInt16, UInt8);

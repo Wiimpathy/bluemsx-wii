@@ -26,14 +26,14 @@
 ******************************************************************************
 */
 #include "romMapperGoudaSCSI.h"
-#include "../IoDevice/wd33c93.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../Language/Language.h"
+#include "wd33c93.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

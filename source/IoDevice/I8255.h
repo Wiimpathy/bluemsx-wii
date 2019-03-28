@@ -28,7 +28,7 @@
 #ifndef I8255_H
 #define I8255_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct I8255 I8255;
 
@@ -83,7 +83,7 @@ void i8255SaveState(I8255* i8255);
 #ifndef I8255_H
 #define I8255_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct I8255 I8255;
 

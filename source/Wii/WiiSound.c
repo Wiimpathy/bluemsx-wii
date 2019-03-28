@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchSound.h"
+#include "ArchSound.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <gccore.h>

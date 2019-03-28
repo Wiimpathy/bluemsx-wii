@@ -28,7 +28,7 @@
 #ifndef SRAMMAPPER_ESESCC_H
 #define SRAMMAPPER_ESESCC_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int sramMapperEseSCCCreate(char* filename, UInt8* buf, int size, int pSlot, int sSlot, int startPage, int hdId, int mode);
 

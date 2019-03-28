@@ -26,25 +26,25 @@
 ******************************************************************************
 */
 #include "LaunchFile.h"
-#include "../Utils/IsFileExtension.h"
-#include "../Utils/ziphelper.h"
-#include "../Memory/RomLoader.h"
-#include "../Emulator/FileHistory.h"
-#include "../Emulator/Emulator.h"
-#include "../Board/Board.h"
-#include "../Arch/ArchFile.h"
-#include "../IoDevice/Disk.h"
-#include "../IoDevice/Casette.h"
-#include "../Arch/ArchDialog.h"
+#include "IsFileExtension.h"
+#include "ziphelper.h"
+#include "RomLoader.h"
+#include "FileHistory.h"
+#include "Emulator.h"
+#include "Board.h"
+#include "ArchFile.h"
+#include "Disk.h"
+#include "Casette.h"
+#include "ArchDialog.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Arch/ArchDialog.h"
+#include "ArchDialog.h"
 
 
 // PacketFileSystem.h Need to be included after all other includes
-#include "../Utils/PacketFileSystem.h"
+#include "PacketFileSystem.h"
 
 
 void archUpdateMenu(int show);
@@ -660,7 +660,7 @@ int tryLaunchUnknownFile(Properties* properties, const char* fileName, int force
              isFileExtension(fileName, ".sf7")) 
     {
         int drive = properties->diskdrive.quickStartDrive;
-        FILE* f = archFileOpen(fileName, "rb");
+        FILE* f = fopen(fileName, "rb");
         if (f != NULL) {
             fseek(f, 0, SEEK_END);
             if (ftell(f) >= 1024 * 1024) {

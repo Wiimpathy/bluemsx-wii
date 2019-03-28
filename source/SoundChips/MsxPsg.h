@@ -28,7 +28,7 @@
 #ifndef MSX_PSG_H
 #define MSX_PSG_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "AY8910.h"
 
 typedef struct MsxPsg MsxPsg;

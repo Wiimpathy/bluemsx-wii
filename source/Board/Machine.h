@@ -28,11 +28,12 @@
 #ifndef MACHINE_H
 #define MACHINE_H
  
-#include "../Common/MsxTypes.h"
-#include "../Media/MediaDb.h"
-#include "../VideoChips/VDP.h"
-#include "../SoundChips/AY8910.h"
+#include "MsxTypes.h"
+#include "MediaDb.h"
+#include "VDP.h"
+#include "AY8910.h"
 #include <stdio.h>
+
 
 typedef enum { 
     BOARD_UNKNOWN       = -1, 
@@ -95,9 +96,6 @@ typedef struct {
     SlotInfo slotInfo[32];
 } Machine;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 Machine* machineCreate(const char* machineName);
 void machineDestroy(Machine* machine);
@@ -114,10 +112,6 @@ int machineInitialize(Machine* machine, UInt8** mainRam, UInt32* mainRamSize, UI
 
 void machineLoadState(Machine* machine);
 void machineSaveState(Machine* machine);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

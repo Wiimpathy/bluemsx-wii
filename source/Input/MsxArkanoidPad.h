@@ -28,7 +28,7 @@
 #ifndef MSX_ARKANOID_PAD_H
 #define MSX_ARKANOID_PAD_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "MsxJoystickDevice.h"
 
 typedef struct MsxArkanoidPad MsxArkanoidPad;

@@ -6,7 +6,7 @@
 #include "OpenMsxYM2413.h"
 
 extern "C" {
-#include "../Utils/SaveState.h"
+#include "SaveState.h"
 }
 
 #include <cmath>

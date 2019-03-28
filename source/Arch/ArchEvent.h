@@ -28,10 +28,6 @@
 #ifndef ARCH_EVENT_H
 #define ARCH_EVENT_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void* archEventCreate(int initState);
 void archEventDestroy(void* event);
 void archEventSet(void* event);
@@ -41,9 +37,5 @@ void* archSemaphoreCreate(int initCount);
 void archSemaphoreDestroy(void* semaphore);
 void archSemaphoreSignal(void* semaphore);
 void archSemaphoreWait(void* semaphore, int timeout);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

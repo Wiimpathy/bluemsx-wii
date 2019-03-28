@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_CROSSBLAIM_H
 #define ROMMAPPER_CROSSBLAIM_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperCrossBlaimCreate(char* filename, UInt8* romData, 
                               int size, int slot, int sslot, int startPage);

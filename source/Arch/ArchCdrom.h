@@ -28,12 +28,8 @@
 #ifndef ARCH_CDROM_H
 #define ARCH_CDROM_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include <stddef.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 typedef struct ArchCdrom ArchCdrom;
 typedef void (*CdromXferCompCb)(void*, int);
@@ -54,9 +50,5 @@ void archCdromSaveState(ArchCdrom* cdrom);
 
 void* archCdromBufferMalloc(size_t size);
 void archCdromBufferFree(void* ptr);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

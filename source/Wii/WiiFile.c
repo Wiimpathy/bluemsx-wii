@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchFile.h"
+#include "ArchFile.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -59,11 +59,6 @@ int archFileExists(const char* fileName)
 {
     struct stat s;
     return stat(fileName, &s) == 0;
-}
-
-FILE* archFileOpen(const char *fname, const char *mode)
-{
-    return fopen(fname, mode);
 }
 
 /* File dialogs: */

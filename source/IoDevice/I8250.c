@@ -31,8 +31,8 @@
 // - Dynamic config of baud rate, data bits, etc.
 // - Receive buffers
 #include "I8250.h"
-#include "../Utils/SaveState.h"
-#include "../Board/Board.h"
+#include "SaveState.h"
+#include "Board.h"
 #include <stdlib.h>
 
 #define LCR_DIVISOR_LATCH_ACCESS_BIT 0x80

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_MSXDOS2_H
 #define ROMMAPPER_MSXDOS2_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMsxDos2Create(char* filename, UInt8* romData, 
                            int size, int slot, int sslot, int startPage);

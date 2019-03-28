@@ -28,11 +28,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "MidiIO.h"
-#include "../Arch/ArchFile.h"
-#include "../Arch/ArchUart.h"
-#include "../SoundChips/DAC.h"
-#include "../Board/Board.h"
-#include "../Arch/ArchMidi.h"
+#include "ArchUart.h"
+#include "DAC.h"
+#include "Board.h"
+#include "ArchMidi.h"
 
 typedef struct MidiIO {
     MidiType inType;
@@ -63,7 +62,7 @@ static void setOutType(int device, MidiIO* midiIo)
         midiIo->outHost = archMidiOutCreate(device);
         break;
     case MIDI_FILE:
-        midiIo->outFile = archFileOpen(theOutFileName, "w+");
+        midiIo->outFile = fopen(theOutFileName, "w+");
         break;
     }
 }
@@ -82,7 +81,7 @@ static void setInType(int device, MidiIO* midiIo)
         midiIo->inHost = archMidiInCreate(device, midiInCb, midiIo);
         break;
     case MIDI_FILE:
-        midiIo->inFile = archFileOpen(theInFileName, "w+");
+        midiIo->inFile = fopen(theInFileName, "w+");
         break;
     }
 }

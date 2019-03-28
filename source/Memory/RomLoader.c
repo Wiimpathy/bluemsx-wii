@@ -25,20 +25,19 @@
 **
 ******************************************************************************
 */
-#include "../Memory/RomLoader.h"
-#include "../Utils/ziphelper.h"
-#include "../arch/ArchFile.h"
+#include "RomLoader.h"
+#include "ziphelper.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
 // PacketFileSystem.h Need to be included after all other includes
-#include "../Utils/PacketFileSystem.h"
+#include "PacketFileSystem.h"
 
 
 UInt8* romLoad(const char *fileName, const char *fileInZipFile, int* size)
 {
-	UInt8* buf = NULL;
+    UInt8* buf = NULL;
     FILE *file;
 
     if (fileName == NULL || strlen(fileName) == 0) {
@@ -54,7 +53,7 @@ UInt8* romLoad(const char *fileName, const char *fileInZipFile, int* size)
         return buf;
     }
 
-    file = archFileOpen(fileName, "rb");
+    file = fopen(fileName, "rb");
     if (file == NULL) {
         return NULL;
     }

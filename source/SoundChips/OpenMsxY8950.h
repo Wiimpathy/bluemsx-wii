@@ -4,11 +4,11 @@
 #define __Y8950_HH__
 
 
-#include "../SoundChips/OpenMsxY8950Adpcm.h"
+#include <OpenMsxY8950Adpcm.h>
 
 extern "C" {
-#include "../Board/Board.h"
-#include "../SoundChips/AudioMixer.h"
+#include "Board.h"
+#include "AudioMixer.h"
 }
 
 

@@ -25,20 +25,19 @@
 **
 ******************************************************************************
 */
-#include "../IoDevice/Casette.h"
-#include "../IoDevice/Led.h"
+#include "Casette.h"
+#include "Led.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
-#include "../Arch/ArchFile.h"
-#include "../Emulator/Properties.h"
-#include "../Utils/SaveState.h"
-#include "../Utils/ziphelper.h"
+#include "Properties.h"
+#include "SaveState.h"
+#include "ziphelper.h"
 
 
 // PacketFileSystem.h Need to be included after all other includes
-#include "../Utils/PacketFileSystem.h"
+#include "PacketFileSystem.h"
 
 static UInt8 hdrSVICAS[17] = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x7F};
 static UInt8 hdrFMSX98[17] = { 0x5f, 0x5f, 0x5f, 0x5f, 0x5f, 0x5f, 0x5f, 0x5f, 0x5f, 0x5f, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x5f };
@@ -194,7 +193,7 @@ int tapeInsert(char *name, const char *fileInZipFile)
     Properties* pProperties = propGetGlobalProperties();
     
     if (ramImageBuffer != NULL) {
-        file = archFileOpen(tapePosName, "w");
+        file = fopen(tapePosName, "w");
         if (file != NULL) {
             char buffer[32];
             sprintf(buffer, "POS:%d", ramImagePos);
@@ -229,7 +228,7 @@ int tapeInsert(char *name, const char *fileInZipFile)
     ramImagePos = 0;
 
     // Load and verify tape position
-    file = archFileOpen(tapePosName, "rb");
+    file = fopen(tapePosName, "rb");
     if (file != NULL) {
         char buffer[32] = { 0 };
         fread(buffer, 1, 31, file);
@@ -244,7 +243,7 @@ int tapeInsert(char *name, const char *fileInZipFile)
         }
     }
     else {
-        file = archFileOpen(name,"rb");
+        file = fopen(name,"rb");
         if (file != NULL) {
             // Load file into RAM buffer
             fseek(file, 0, SEEK_END);
@@ -328,7 +327,7 @@ int tapeSave(char *name, TapeFormat format)
         return 0;
     }
 
-    file = archFileOpen(name, "wb");
+    file = fopen(name, "wb");
     if (file == NULL) {
         return 0;
     }

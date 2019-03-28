@@ -26,13 +26,13 @@
 ******************************************************************************
 */
 #include "romMapperJoyrexPsg.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../SoundChips/SN76489.h"
-#include "../Board/Board.h"
-#include "../Memory/IoPort.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SaveState.h"
+#include "SN76489.h"
+#include "Board.h"
+#include "IoPort.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

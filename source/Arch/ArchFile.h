@@ -28,16 +28,9 @@
 #ifndef ARCH_FILE_H
 #define ARCH_FILE_H
 
-#include <stdio.h>
+#include "Properties.h"
+#include "MediaDb.h"
 
-#include "../Emulator/Properties.h"
-#include "../Media/MediaDb.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-FILE *archFileOpen(const char *fname, const char *mode);
 int archCreateDirectory(const char* pathname);
 const char* archGetCurrentDirectory();
 void archSetCurrentDirectory(const char* pathname);
@@ -70,8 +63,5 @@ char* archFilenameGetOpenCasZip(Properties* properties, const char* fname, const
 
 char* archFilenameGetOpenAnyZip(Properties* properties, const char* fname, const char* fileList, int count, int* autostart, int* romType);
 
-#ifdef __cplusplus
-}
-#endif
 
 #endif

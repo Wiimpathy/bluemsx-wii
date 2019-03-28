@@ -32,9 +32,9 @@
 extern "C" {
 #endif
 
-#include "../Common/MsxTypes.h"
-#include "../SoundChips/AudioMixer.h"
-#include "../Debugger/DebugDeviceManager.h"
+#include "MsxTypes.h"
+#include "AudioMixer.h"
+#include "DebugDeviceManager.h"
     
 typedef struct Moonsound Moonsound;
 

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_NOWIND_H
 #define ROMMAPPER_NOWIND_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperNoWindCreate(int driveId, char* filename, UInt8* romData, 
                           int size, int slot, int sslot, int startPage);

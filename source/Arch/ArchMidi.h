@@ -28,15 +28,11 @@
 #ifndef ARCH_MIDI_H
 #define ARCH_MIDI_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct ArchMidi ArchMidi;
 
 typedef void (*ArchMidiInCb)(void*, UInt8*, UInt32);
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 void archMidiEnable(int enable);
 int  archMidiGetNoteOn();
@@ -52,9 +48,5 @@ int archMidiInGetNoteOn(ArchMidi* archMidi, int note);
 ArchMidi* archMidiOutCreate(int device);
 void archMidiOutDestroy(ArchMidi* archMidi);
 void archMidiOutTransmit(ArchMidi* archMidi, UInt8 value);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

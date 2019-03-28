@@ -28,7 +28,7 @@
 #ifndef COIN_DEVICE_H
 #define COIN_DEVICE_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct CoinDevice CoinDevice;
 

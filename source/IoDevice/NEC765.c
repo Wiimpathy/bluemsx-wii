@@ -26,10 +26,10 @@
 ******************************************************************************
 */
 #include "NEC765.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../IoDevice/Disk.h"
-#include "../IoDevice/Led.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Disk.h"
+#include "Led.h"
 #include "FdcAudio.h"
 #include <stdlib.h>
 #include <string.h>

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_HOLYQURAN_H
 #define ROMMAPPER_HOLYQURAN_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperHolyQuranCreate(char* filename, UInt8* romData, 
                              int size, int slot, int sslot, int startPage);

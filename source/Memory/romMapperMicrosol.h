@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_MICROSOL_H
 #define ROMMAPPER_MICROSOL_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMicrosolCreate(char* filename, UInt8* romData, 
                             int size, int slot, int sslot, int startPage);

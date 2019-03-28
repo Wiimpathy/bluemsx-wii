@@ -28,7 +28,7 @@
 #ifndef SVI_JOY_IO_H
 #define SVI_JOY_IO_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "SviJoystickDevice.h"
 
 typedef struct SviJoyIo SviJoyIo;

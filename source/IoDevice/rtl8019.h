@@ -28,7 +28,7 @@
 #ifndef RTL8019_H
 #define RTL8019_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct RTL8019 RTL8019;
 

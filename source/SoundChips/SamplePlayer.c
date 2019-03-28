@@ -25,8 +25,8 @@
 **
 ******************************************************************************
 */
-#include "../SoundChips/SamplePlayer.h"
-#include "../Board/Board.h"
+#include "SamplePlayer.h"
+#include "Board.h"
 #include <stdlib.h>
 #include <string.h>
 

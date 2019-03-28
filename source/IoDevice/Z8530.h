@@ -28,7 +28,7 @@
 #ifndef Z8530_H
 #define Z8530_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct Z8530 Z8530;
 

@@ -18,15 +18,10 @@
 #ifdef WII
 // Not supported on WII
 #else
-#ifndef UNDER_CE
-#undef TEXT
-#define TEXT(s) s
-#endif
-
 int CMSXGr::Init()
 {
 	// Load DLL.
-	hLib = LoadLibrary(L"MSXGr.dll");
+	hLib = LoadLibrary("MSXGr.dll");
 
 	if (!hLib)	{
 		// DLL could not be found.
@@ -34,7 +29,7 @@ int CMSXGr::Init()
 	}
 
 	_MSXGR_Init MSXGR_Init =
-		(_MSXGR_Init)GetProcAddress(hLib, TEXT("MSXGR_Init"));
+		(_MSXGR_Init)GetProcAddress(hLib, "MSXGR_Init");
 
 	if (MSXGR_Init == NULL) {
 		// MSXGR_Init method not found, assume corrupt DLL.
@@ -50,15 +45,15 @@ int CMSXGr::Init()
 	}
 
 	// initialiase funtion pointers
-	MSXGR_Err2Str = (_MSXGR_Err2Str)GetProcAddress(hLib, TEXT("MSXGR_Err2Str"));
-	MSXGR_GetVersion = (_MSXGR_GetVersion)GetProcAddress(hLib, TEXT("MSXGR_GetVersion"));
-	MSXGR_SetDebugMode = (_MSXGR_SetDebugMode)GetProcAddress(hLib, TEXT("MSXGR_SetDebugMode"));
-	MSXGR_IsSlotEnable = (_MSXGR_IsSlotEnable)GetProcAddress(hLib, TEXT("MSXGR_IsSlotEnable"));
-	MSXGR_GetSlotStatus = (_MSXGR_GetSlotStatus)GetProcAddress(hLib, TEXT("MSXGR_GetSlotStatus"));
-	MSXGR_ReadMemory = (_MSXGR_ReadMemory)GetProcAddress(hLib, TEXT("MSXGR_ReadMemory"));
-	MSXGR_WriteMemory =	(_MSXGR_WriteMemory)GetProcAddress(hLib, TEXT("MSXGR_WriteMemory"));
-	MSXGR_WriteIO =	(_MSXGR_WriteIO)GetProcAddress(hLib, TEXT("MSXGR_WriteIO"));
-	MSXGR_ReadIO = (_MSXGR_ReadIO)GetProcAddress(hLib, TEXT("MSXGR_ReadIO"));
+	MSXGR_Err2Str = (_MSXGR_Err2Str)GetProcAddress(hLib, "MSXGR_Err2Str");
+	MSXGR_GetVersion = (_MSXGR_GetVersion)GetProcAddress(hLib, "MSXGR_GetVersion");
+	MSXGR_SetDebugMode = (_MSXGR_SetDebugMode)GetProcAddress(hLib, "MSXGR_SetDebugMode");
+	MSXGR_IsSlotEnable = (_MSXGR_IsSlotEnable)GetProcAddress(hLib, "MSXGR_IsSlotEnable");
+	MSXGR_GetSlotStatus = (_MSXGR_GetSlotStatus)GetProcAddress(hLib, "MSXGR_GetSlotStatus");
+	MSXGR_ReadMemory = (_MSXGR_ReadMemory)GetProcAddress(hLib, "MSXGR_ReadMemory");
+	MSXGR_WriteMemory =	(_MSXGR_WriteMemory)GetProcAddress(hLib, "MSXGR_WriteMemory");
+	MSXGR_WriteIO =	(_MSXGR_WriteIO)GetProcAddress(hLib, "MSXGR_WriteIO");
+	MSXGR_ReadIO = (_MSXGR_ReadIO)GetProcAddress(hLib, "MSXGR_ReadIO");
 
 	// Wait for the driver to attach the game reader(s)
 	int nSlot;
@@ -81,7 +76,7 @@ void CMSXGr::Uninit()
 	}
 
 	_MSXGR_Uninit MSXGR_Uninit =
-		(_MSXGR_Uninit)GetProcAddress(hLib, TEXT("MSXGR_Uninit"));
+		(_MSXGR_Uninit)GetProcAddress(hLib, "MSXGR_Uninit");
 
 	// uninit msxgr
 	if (MSXGR_Uninit) {

@@ -30,9 +30,9 @@
 #include "OpenMsxYMF262.h"
 #include "OpenMsxYMF278.h"
 extern "C" {
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Language.h"
 }
 
 #define FREQUENCY        3579545

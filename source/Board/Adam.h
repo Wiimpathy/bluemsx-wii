@@ -28,7 +28,7 @@
 #ifndef ADAM_H
 #define ADAM_H
  
-#include "../Board/Board.h"
+#include "Board.h"
 
 int adamCreate(Machine* machine, 
                  VdpSyncMode vdpSyncMode,

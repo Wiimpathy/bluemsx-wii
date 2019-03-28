@@ -27,14 +27,14 @@
 */
 #include "romMapperDumas.h"
 #include "AmdFlash.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/sramLoader.h"
-#include "../IoDevice/sl811hs.h"
-#include "../IoDevice/Microwire93Cx6.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "sramLoader.h"
+#include "sl811hs.h"
+#include "Microwire93Cx6.h"
 #include <stdlib.h>
 #include <string.h>
 

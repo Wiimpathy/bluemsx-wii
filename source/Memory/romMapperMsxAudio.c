@@ -26,22 +26,22 @@
 ******************************************************************************
 */
 #include "romMapperMsxAudio.h"
-#include "../Media/MediaDb.h"
-#include "../IoDevice/Switches.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Memory/IoPort.h"
-#include "../Board/Board.h"
-#include "../SoundChips/Y8950.h"
-#include "../IoDevice/MSXMidi.h"
-#include "../IoDevice/MidiIO.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
+#include "MediaDb.h"
+#include "Switches.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "IoPort.h"
+#include "Board.h"
+#include "Y8950.h"
+#include "MSXMidi.h"
+#include "MidiIO.h"
+#include "SaveState.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "../Arch/ArchEvent.h"
+#include "ArchEvent.h"
 
 #define RX_QUEUE_SIZE 256
 

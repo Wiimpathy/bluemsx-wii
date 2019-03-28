@@ -26,12 +26,12 @@
 ******************************************************************************
 */
 #include "romMapperPlayBall.h"
-#include "../Board/Board.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../SoundChips/SamplePlayer.h"
-#include "../Utils/SaveState.h"
+#include "Board.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SamplePlayer.h"
+#include "SaveState.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

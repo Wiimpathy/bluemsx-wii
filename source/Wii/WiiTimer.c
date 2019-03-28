@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchTimer.h"
+#include "ArchTimer.h"
 
 void* archCreateTimer(int period, int (*timerCallback)(void*))
 {

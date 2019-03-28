@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KANJI_H
 #define ROMMAPPER_KANJI_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKanjiCreate(UInt8* romData, int size);
 

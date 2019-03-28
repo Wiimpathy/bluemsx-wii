@@ -7,23 +7,12 @@ ifeq ($(strip $(DEVKITPPC)),)
 $(error "Please set DEVKITPPC in your environment. export DEVKITPPC=<path to>devkitPPC")
 endif
 
-DEVKITPPC_LOCAL		:=	$(DEVKITPPC)/../devkitPPC_blueMSXWii
-LIBOGC_LOCAL        :=  $(DEVKITPPC)/../libogc_blueMSXWii
-LIBOGC_INC_LOCAL	:=	$(LIBOGC_LOCAL)/include
-LIBOGC_LIB_LOCAL	:=	$(LIBOGC_LOCAL)/lib/wii
+include $(DEVKITPPC)/wii_rules
 
-# include from origional devkitPPC but for the rest, use our own!
-PATH_BACKUP := $(PATH)
-
-# Stupid tricks needed to include the local copy of the rules
-ifneq ($(findstring wii_rules,$(wildcard ../lib/wii_rules)), )
-include ../lib/wii_rules
-else
-include lib/wii_rules
+#platform=WINDOWS
+ifndef platform
+	platform = UNIX
 endif
-
-export PATH := $(DEVKITPPC_LOCAL)/bin:$(PATH_BACKUP)
-
 
 #---------------------------------------------------------------------------------
 # TARGET is the name of the output
@@ -38,45 +27,63 @@ SOURCES		:=	source/Bios \
               source/Debugger \
               source/Emulator \
               source/Expat \
-              source/GuiBase \
-              source/GuiLayers \
-              source/GuiElements \
-              source/GuiDialogs \
               source/Gui \
               source/Input \
               source/IoDevice \
               source/Language \
-              source/Libpng \
               source/Media \
               source/Memory \
               source/Resource \
               source/SoundChips \
               source/TinyXML \
-              source/Tools/Trainer \
               source/Unzip \
               source/Utils \
               source/VideoChips \
               source/VideoRender \
               source/Wii \
+              source/WiiSprite \
               source/WiiUsbKeyboard \
               source/Z80
 
 DATA		:=	data
-INCLUDES	:=	include/wii
+INCLUDES	:=	include/libpng \
+              source/Arch \
+              source/Board \
+              source/Common \
+              source/Debugger \
+              source/Emulator \
+              source/Expat \
+              source/Gui \
+              source/Input \
+              source/IoDevice \
+              source/Language \
+              source/Media \
+              source/Memory \
+              source/Resource \
+              source/SoundChips \
+              source/TinyXML \
+              source/Unzip \
+              source/Utils \
+              source/VideoChips \
+              source/VideoRender \
+              source/Wii \
+              source/WiiSprite \
+              source/WiiUsbKeyboard \
+              source/Z80
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS	= -g -O2 -Wall -Wno-write-strings $(MACHDEP) $(INCLUDE) -DNO_ASM -DWII -DBLUEMSXWII -DDEVKITPPC_STDLIB_INCLUDE=\"$(DEVKITPPC_LOCAL)/powerpc-eabi/include/stdlib.h\"
-CXXFLAGS	=	$(CFLAGS)
+CFLAGS	= -g -O2 -Wall $(MACHDEP) $(INCLUDE) -DNO_ASM -DWII -DDEVKITPPC_STDLIB_INCLUDE=\"$(DEVKITPPC)/powerpc-eabi/include/stdlib.h\"
+CXXFLAGS	=	-Wno-narrowing $(CFLAGS)
 
 LDFLAGS	=	-g $(MACHDEP) -Wl,-Map,$(notdir $@).map
 
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	 -ldb -lfreetype -lz -lwiiuse -lbte -lfat -logc -lm -lmad
+LIBS	:=	 -ldb -lfreetype -lpng -lz -lwiiuse -lbte -lfat -logc -lm -lmad
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
@@ -122,22 +129,21 @@ export OFILES	:=	$(addsuffix .o,$(BINFILES)) \
 					$(CPPFILES:.cpp=.o) $(CFILES:.c=.o) \
 					$(sFILES:.s=.o) $(SFILES:.S=.o)
 
-export GENFILES	:=	$(DEVKITPPC_LOCAL)/devkitppc.log $(LIBOGC_LOCAL)/libogc.log sdcard.inc gamepack.inc $(PNGFILES:.png=.inc) $(TTFFILES:.ttf=.inc)
+export GENFILES	:=	 sdcard.inc gamepack.inc $(PNGFILES:.png=.inc) $(TTFFILES:.ttf=.inc)
 
 #---------------------------------------------------------------------------------
 # build a list of include paths
 #---------------------------------------------------------------------------------
-export INCLUDE	:=	$(foreach dir,$(INCLUDES), -I $(CURDIR)/$(dir)) \
-					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
-					-I$(CURDIR)/$(BUILD) -I$(CURDIR)/include \
-					-I$(LIBOGC_INC_LOCAL) \
-					-I$(LIBOGC_INC_LOCAL)/ogc
+export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
+			$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
+			-I$(CURDIR)/$(BUILD) \
+			-I$(LIBOGC_INC) -I$(LIBOGC_INC)/ogc -I$(PORTLIBS)/include
 
 #---------------------------------------------------------------------------------
 # build a list of library paths
 #---------------------------------------------------------------------------------
 export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib/wii) \
-					-L$(LIBOGC_LIB_LOCAL)
+					-L$(LIBOGC_LIB)
 
 export OUTPUT	:=	$(CURDIR)/$(TARGET)
 .PHONY: $(BUILD) clean
@@ -145,14 +151,18 @@ export OUTPUT	:=	$(CURDIR)/$(TARGET)
 #---------------------------------------------------------------------------------
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
-	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+ifeq ($(platform),UNIX)
+	@cd util && gcc raw2c.c -o raw2c
+endif
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile -j6
 
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...
+ifeq ($(platform),UNIX)
+	@rm -fr util/raw2c
+endif
 	@rm -fr $(BUILD) $(OUTPUT).elf $(OUTPUT).dol
-	@rm -rf $(DEVKITPPC_LOCAL)
-	@rm -rf $(LIBOGC_LOCAL)
 
 #---------------------------------------------------------------------------------
 run:
@@ -161,7 +171,7 @@ run:
 #---------------------------------------------------------------------------------
 disasm:
 	@echo Disassembling ...
-	@$(DEVKITPPC_LOCAL)/bin/powerpc-eabi-objdump -S $(TARGET).elf >$(TARGET).txt
+	@$(DEVKITPPC)/bin/powerpc-eabi-objdump -S $(TARGET).elf >$(TARGET).txt
 
 #---------------------------------------------------------------------------------
 else
@@ -179,7 +189,7 @@ $(OUTPUT).elf: $(OFILES)
 # SVN revision
 #---------------------------------------------------------------------------------
 revision:
-	@cmd /c ..\\util\\revision.bat
+#	@cmd /c ..\\util\\revision.bat
 
 #---------------------------------------------------------------------------------
 # This rule links in binary data with the .jpg extension
@@ -195,28 +205,24 @@ revision:
 sdcard.inc: ../sdcard/MSX
 	@echo Creating sdcard.zip ...
 	@rm -f sdcard.zip
+ifeq ($(platform),UNIX)
+	7za a -r -xr!*.svn -xr!thumbs.* sdcard.zip ../sdcard/MSX
+else
 	@../util/7za a -r -xr!*.svn -xr!thumbs.* sdcard.zip ../sdcard/MSX
+endif
 	@echo Converting sdcard.zip to sdcard.inc ...
 	@../util/raw2c sdcard.zip sdcard.inc sdcard
 
 gamepack.inc: ../sdcard/Gamepack
 	@echo Creating gamepack.zip ...
 	@rm -f gamepack.zip
+ifeq ($(platform),UNIX)
+	7za a -r -xr!*.svn -xr!thumbs.* gamepack.zip ../sdcard/Gamepack/Games
+else
 	@../util/7za a -r -xr!*.svn -xr!thumbs.* gamepack.zip ../sdcard/Gamepack/Games
+endif
 	@echo Converting gamepack.zip to gamepack.inc ...
 	@../util/raw2c gamepack.zip gamepack.inc gamepack
-
-#---------------------------------------------------------------------------------
-# This rule unpacks the local devkitPPC/libogc zip to a custom directory
-#---------------------------------------------------------------------------------
-$(DEVKITPPC_LOCAL)/devkitppc.log: ../lib/devkitPPC.zip
-	@echo Installing devkitPPC to $(DEVKITPPC_LOCAL)
-	@[ -d $(DEVKITPPC_LOCAL) ] || mkdir -p $(DEVKITPPC_LOCAL)
-	@../util/unzip -o ../lib/devkitPPC.zip -d $(DEVKITPPC_LOCAL) >$(DEVKITPPC_LOCAL)/devkitppc.log
-$(LIBOGC_LOCAL)/libogc.log: ../lib/libogc.zip
-	@echo Installing libogc to $(LIBOGC_LOCAL)
-	@[ -d $(LIBOGC_LOCAL) ] || mkdir -p $(LIBOGC_LOCAL)
-	@../util/unzip -o ../lib/libogc.zip -d $(LIBOGC_LOCAL) >$(LIBOGC_LOCAL)/libogc.log
 
 #---------------------------------------------------------------------------------
 # This rule converts .png to .inc files

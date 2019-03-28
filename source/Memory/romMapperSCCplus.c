@@ -26,12 +26,12 @@
 ******************************************************************************
 */
 #include "romMapperSCCplus.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../SoundChips/SCC.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SCC.h"
+#include "Board.h"
+#include "SaveState.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

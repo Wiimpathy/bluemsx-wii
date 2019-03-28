@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KONAMI_WORD_PRO_H
 #define ROMMAPPER_KONAMI_WORD_PRO_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKonamiWordProCreate(char* filename, UInt8* romData, 
                                  int size, int slot, int sslot, int startPage);

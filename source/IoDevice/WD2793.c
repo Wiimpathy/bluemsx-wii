@@ -27,37 +27,37 @@
 */
 #include "WD2793.h"
 #include "WDCRC.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../IoDevice/Disk.h"
-#include "../IoDevice/Led.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Disk.h"
+#include "Led.h"
 #include "FdcAudio.h"
 #include <stdlib.h>
 #include <string.h>
 
 struct WD2793 {
-    UInt8  regStatus;
-    UInt8  regCommand;
-    UInt8  regSector;
-    UInt8  regTrack;
-    UInt8  regData;
-    int    immediateInt;
-    int    intRequest;
-    int    dataRequest;
-    int    dataReady;
-    int    stepDirection;
+	UInt8  regStatus;
+	UInt8  regCommand;
+	UInt8  regSector;
+	UInt8  regTrack;
+	UInt8  regData;
+	int    immediateInt;
+	int    intRequest;
+	int    dataRequest;
+	int    dataReady;
+	int    stepDirection;
     int    step;
     UInt32 curStep;
     int    headLoaded;
     UInt32 dataRequsetTime;
     UInt32 stepTime;
     int    sectorOffset;
-    int    dataAvailable;
+	int    dataAvailable;
     int    drive;
     UInt8  diskTrack;
     UInt8  diskTracks[4];
     int    diskSide;
-    int    diskDensity;
+	int    diskDensity;
     FdcAudio* fdcAudio;
     Wd2793FdcType type;
     UInt8  sectorBuf[512];

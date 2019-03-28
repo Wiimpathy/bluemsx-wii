@@ -25,7 +25,7 @@
 **
 ******************************************************************************
 */
-#include "../SoundChips/KeyClick.h"
+#include "KeyClick.h"
 #include <stdlib.h>
 #include <string.h>
 

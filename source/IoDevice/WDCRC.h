@@ -28,7 +28,7 @@
 #ifndef WDCRC_H
 #define WDCRC_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 UInt16 calc_crc(UInt16 crc, UInt8 value);
 

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_DRAM_H
 #define ROMMAPPER_DRAM_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperDramCreate(char* filename, UInt8* romData, 
                         int size, int slot, int sslot, int startPage);

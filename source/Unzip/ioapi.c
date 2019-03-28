@@ -9,10 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <zlib/zlib.h>
 
-#include "../Arch/ArchFile.h"
-
+#include "zlib.h"
 #include "ioapi.h"
 
 
@@ -84,7 +82,7 @@ voidpf ZCALLBACK fopen_file_func (opaque, filename, mode)
         mode_fopen = "wb";
 
     if ((filename!=NULL) && (mode_fopen != NULL))
-        file = archFileOpen(filename, mode_fopen);
+        file = fopen(filename, mode_fopen);
     return file;
 }
 

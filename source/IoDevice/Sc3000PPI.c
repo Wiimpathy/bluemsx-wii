@@ -25,16 +25,16 @@
 **
 ******************************************************************************
 */
-#include "../IoDevice/Sc3000PPI.h"
-#include "../Input/Sg1000JoyIo.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Memory/IoPort.h"
-#include "../IoDevice/I8255.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
-#include "../Input/InputEvent.h"
+#include "Sc3000PPI.h"
+#include "Sg1000JoyIo.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "IoPort.h"
+#include "I8255.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Language.h"
+#include "InputEvent.h"
 #include <stdlib.h>
 
 

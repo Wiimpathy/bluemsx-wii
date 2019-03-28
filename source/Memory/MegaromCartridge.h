@@ -28,9 +28,9 @@
 #ifndef MEGAROM_CARTRIDGE_H
 #define MEGAROM_CARTRIDGE_H
 
-#include "../Common/MsxTypes.h"
-#include "../Media/MediaDb.h"
-#include "../SoundChips/YM2413.h"
+#include "MsxTypes.h"
+#include "MediaDb.h"
+#include "YM2413.h"
 
 void cartridgeSetSlotInfo(int cartNo, int slot, int sslot);
 

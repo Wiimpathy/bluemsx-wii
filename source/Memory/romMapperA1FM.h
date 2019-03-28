@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_A1FM_H
 #define ROMMAPPER_A1FM_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperA1FMCreate(char* filename, UInt8* romData, 
                         int size, int slot, int sslot, int startPage, int sramSize);

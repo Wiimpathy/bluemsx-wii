@@ -25,12 +25,12 @@
 **
 ******************************************************************************
 */
-#include "../Input/SviJoyIo.h"
-#include "../Input/JoystickPort.h"
-#include "../Input/InputEvent.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Media/MediaDb.h"
+#include "SviJoyIo.h"
+#include "JoystickPort.h"
+#include "InputEvent.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "MediaDb.h"
 
 #include "SviJoystick.h"
 

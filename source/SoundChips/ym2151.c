@@ -27,11 +27,11 @@
 */
 #include "ym2151.h"
 #include "MameYM2151.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
 #include <stdlib.h>
 #include <string.h>
 

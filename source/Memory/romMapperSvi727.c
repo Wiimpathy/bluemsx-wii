@@ -26,13 +26,13 @@
 ******************************************************************************
 */
 #include "romMapperSvi727.h"
-#include "../VideoChips/CRTC6845.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../Memory/RomLoader.h"
+#include "CRTC6845.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "RomLoader.h"
 #include <stdlib.h>
 #include <string.h>
 

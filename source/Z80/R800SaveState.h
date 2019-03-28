@@ -32,8 +32,8 @@
 #ifndef R800_SAVE_STATE_H
 #define R800_SAVE_STATE_H
  
-#include "../Common/MsxTypes.h"
-#include "../Z80/R800.h"
+#include "MsxTypes.h"
+#include "R800.h"
 
 void r800LoadState(R800* r800);
 void r800SaveState(R800* r800);

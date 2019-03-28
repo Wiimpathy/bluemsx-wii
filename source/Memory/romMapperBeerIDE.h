@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_BEER_IDE_H
 #define ROMMAPPER_BEER_IDE_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperBeerIdeCreate(int hdId, char* fileName, UInt8* romData, 
                            int size, int slot, int sslot, int startPage);

@@ -28,7 +28,7 @@
 #ifndef SVI328_FDC_H
 #define SVI328_FDC_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int svi328FdcCreate(void);
 

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KONAMIKEYBOARDMASTER_H
 #define ROMMAPPER_KONAMIKEYBOARDMASTER_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKonamiKeyboardMasterCreate(char* filename, UInt8* romData, 
                                        int size, int slot, int sslot, 

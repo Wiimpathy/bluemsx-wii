@@ -26,18 +26,18 @@
 ******************************************************************************
 */
 #include "CommandLine.h"
-#include "../Utils/TokenExtract.h"
-#include "../Utils/IsFileExtension.h"
-#include "../Media/MediaDb.h"
-#include "../Utils/ziphelper.h"
-#include "../Board/Machine.h"
-#include "../IoDevice/Casette.h"
-#include "../IoDevice/Disk.h"
-#include "../Emulator/FileHistory.h"
-#include "../Emulator/LaunchFile.h"
-#include "../Emulator/Emulator.h"
-#include "../Utils/StrcmpNoCase.h"
-#include "../Emulator/AppConfig.h"
+#include "TokenExtract.h"
+#include "IsFileExtension.h"
+#include "MediaDb.h"
+#include "ziphelper.h"
+#include "Machine.h"
+#include "Casette.h"
+#include "Disk.h"
+#include "FileHistory.h"
+#include "LaunchFile.h"
+#include "Emulator.h"
+#include "StrcmpNoCase.h"
+#include "AppConfig.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -289,7 +289,7 @@ static int emuStartWithArguments(Properties* properties, char* commandLine, char
     char    cas[512] = "";
     char    caszip[256] = "";
     int     fullscreen = 0;
-#ifdef BLUEMSXWII
+#ifdef WII
     int     startEmu = 1; // always start
 #else
     int     startEmu = 0;
@@ -509,7 +509,7 @@ static int emuStartWithArguments(Properties* properties, char* commandLine, char
     if (strlen(cas)   && !insertCassette(properties, 0, cas, *caszip ? caszip : NULL, -1)) return 0;
 
     if (strlen(machineName)) strcpy(properties->emulation.machineName, machineName);
-#ifdef BLUEMSXWII
+#ifdef WII
     else strcpy(properties->emulation.machineName, "MSX2 - No Moonsound"); /* If not specified, use MSX2 without moonsound as default */
 #endif
 

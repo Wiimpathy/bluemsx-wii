@@ -28,12 +28,8 @@
 #ifndef FILE_HISTORY_H
 #define FILE_HISTORY_H
 
-#include "../Media/MediaDb.h"
-#include "../Emulator/Properties.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MediaDb.h"
+#include "Properties.h"
 
 const char* stripPath(const char* filename);
 const char* stripPathExt(const char* filename);
@@ -53,10 +49,6 @@ void updateExtendedCasName(int drive, char* filename, char* zipFile);
 
 int createSaveFileBaseName(char* fileBase,Properties* properties, int useExtendedName);
 char* generateSaveFilename(Properties* properties, char* directory, char* prefix, char* extension, int digits);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

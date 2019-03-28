@@ -28,7 +28,7 @@
 #ifndef MSX_MOUSE_H
 #define MSX_MOUSE_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "MsxJoystickDevice.h"
 
 typedef struct MsxMouse MsxMouse;

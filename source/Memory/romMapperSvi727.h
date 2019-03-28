@@ -29,7 +29,7 @@
 #ifndef SVI727_H
 #define SVI727_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperSvi727Create(char* filename, UInt8* charRom, int charSize,
                                  int slot, int sslot, int startPage);

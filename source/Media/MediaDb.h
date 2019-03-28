@@ -187,10 +187,6 @@ enum  {
 typedef struct MediaType MediaType;
 typedef struct MediaDb MediaDb;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void mediaDbAddFromXmlFile(MediaDb* mediaDb, const char* fileName, 
                            const char* rootTag, const char* elemTag);
 
@@ -225,9 +221,5 @@ int romTypeIsRom(RomType romType);
 int romTypeIsMegaRom(RomType romType);
 int romTypeIsMegaRam(RomType romType);
 int romTypeIsFmPac(RomType romType);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /*MEDIA_DB_H*/

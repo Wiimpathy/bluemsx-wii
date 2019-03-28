@@ -26,11 +26,11 @@
 ******************************************************************************
 */
 #include "romMapperNms8280VideoDa.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
-#include "../VideoChips/VideoManager.h"
-#include "../Arch/ArchVideoIn.h"
-#include "../VideoChips/VDP.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
+#include "VideoManager.h"
+#include "ArchVideoIn.h"
+#include "VDP.h"
 
 #include <stdlib.h>
 

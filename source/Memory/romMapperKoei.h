@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KOEI_H
 #define ROMMAPPER_KOEI_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKoeiCreate(char* filename, UInt8* romData, 
                         int size, int slot, int sslot, int startPage);

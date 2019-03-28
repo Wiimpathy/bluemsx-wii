@@ -28,8 +28,8 @@
 #ifndef VLM5030_H
 #define VLM5030_H
 
-#include "../Common/MsxTypes.h"
-#include "../SoundChips/AudioMixer.h"
+#include "MsxTypes.h"
+#include "AudioMixer.h"
 
 /* Type definitions */
 typedef struct VLM5030 VLM5030;

@@ -26,9 +26,9 @@
 ******************************************************************************
 */
 #include "rtl8019.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Arch/ArchEth.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "ArchEth.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -679,7 +679,7 @@ static UInt8 readPage2(RTL8019* rtl, UInt8 address)
     case 0x05:
         return rtl->regLppr;
     case 0x06:
-        return 0; //(UInt8)(rtl->regAcnt >> 8); --> Same effect as 0, is this intentional?
+        return (UInt8)(rtl->regAcnt >> 8);
     case 0x07:
         return (UInt8)(rtl->regAcnt & 0xff);
     case 0x0c:

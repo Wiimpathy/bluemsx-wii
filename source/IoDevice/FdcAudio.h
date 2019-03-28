@@ -28,7 +28,7 @@
 #ifndef FDC_AUDIO_H
 #define FDC_AUDIO_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef enum { FA_WESTERN_DIGITAL, FA_PANASONIC } FdcAudioType;
 

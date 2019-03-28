@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KOREAN80_H
 #define ROMMAPPER_KOREAN80_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKorean80Create(char* filename, UInt8* romData, 
                             int size, int slot, int sslot, int startPage);

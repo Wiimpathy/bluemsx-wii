@@ -26,10 +26,10 @@
 ******************************************************************************
 */
 #include "SN76489.h"
-#include "../Memory/IoPort.h"
-#include "../Utils/SaveState.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Language/Language.h"
+#include "IoPort.h"
+#include "SaveState.h"
+#include "DebugDeviceManager.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <float.h>

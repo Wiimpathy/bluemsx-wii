@@ -25,37 +25,37 @@
 **
 ******************************************************************************
 */
-#include "../Emulator/Emulator.h"
-#include "../Common/MsxTypes.h"
-#include "../Debugger/Debugger.h"
-#include "../Board/Board.h"
-#include "../Emulator/FileHistory.h"
-#include "../IoDevice/Switches.h"
-#include "../IoDevice/Led.h"
-#include "../Board/Machine.h"
-#include "../Input/InputEvent.h"
+#include "Emulator.h"
+#include "MsxTypes.h"
+#include "Debugger.h"
+#include "Board.h"
+#include "FileHistory.h"
+#include "Switches.h"
+#include "Led.h"
+#include "Machine.h"
+#include "InputEvent.h"
 
-#include "../Arch/ArchThread.h"
-#include "../Arch/ArchEvent.h"
-#include "../Arch/ArchTimer.h"
-#include "../Arch/ArchSound.h"
-#include "../Arch/ArchMidi.h"
+#include "ArchThread.h"
+#include "ArchEvent.h"
+#include "ArchTimer.h"
+#include "ArchSound.h"
+#include "ArchMidi.h"
 
-#include "../Input/JoystickPort.h"
-#include "../Arch/ArchInput.h"
-#include "../Arch/ArchDialog.h"
-#include "../Arch/ArchNotifications.h"
+#include "JoystickPort.h"
+#include "ArchInput.h"
+#include "ArchDialog.h"
+#include "ArchNotifications.h"
 #include <math.h>
 #include <string.h>
 
 static int WaitForSync(int maxSpeed, int breakpointHit);
 
 static void*  emuThread;
-#ifndef BLUEMSXWII
+#ifndef WII
 static void*  emuSyncEvent;
 #endif
 static void*  emuStartEvent;
-#ifndef BLUEMSXWII
+#ifndef WII
 static void*  emuTimer;
 #endif
 static int    emuExitFlag;
@@ -111,7 +111,7 @@ void savelog()
     int totalSize = LOG_SIZE;
     int lastPct = -1;
     int cnt = 0;
-    FILE * f = archFileOpen("bluemsxlog.txt", "w+");
+    FILE * f = fopen("bluemsxlog.txt", "w+");
     int i = 0;
     if (logwrapped == 0 && logindex == 0) {
         return;
@@ -255,7 +255,7 @@ int emulatorGetSyncPeriod() {
 #endif
 }
 
-#ifndef BLUEMSXWII
+#ifndef WII
 static int timerCallback(void* timer) {
     if (properties == NULL) {
         return 1;
@@ -376,7 +376,7 @@ static void emulatorThread() {
     ledSetAll(0);
     emuState = EMU_STOPPED;
 
-#ifndef BLUEMSXWII
+#ifndef WII
     archTimerDestroy(emuTimer);
 #endif
 
@@ -418,11 +418,11 @@ void emulatorStart(const char* stateName) {
     boardSetMachine(machine);
 
 #ifndef NO_TIMERS
-#ifndef BLUEMSXWII
+#ifndef WII
     emuSyncEvent  = archEventCreate(0);
 #endif
     emuStartEvent = archEventCreate(0);
-#ifndef BLUEMSXWII
+#ifndef WII
     emuTimer = archCreateTimer(emulatorGetSyncPeriod(), timerCallback);
 #endif
 #endif
@@ -493,7 +493,7 @@ void emulatorStop() {
     } while (!emuSuspendFlag);
 
     emuExitFlag = 1;
-#ifndef BLUEMSXWII
+#ifndef WII
     archEventSet(emuSyncEvent);
 #endif
     archSoundSuspend();
@@ -501,7 +501,7 @@ void emulatorStop() {
     archMidiEnable(0);
     machineDestroy(machine);
     archThreadDestroy(emuThread);
-#ifndef BLUEMSXWII
+#ifndef WII
     archEventDestroy(emuSyncEvent);
 #endif
     archEventDestroy(emuStartEvent);
@@ -627,7 +627,7 @@ void RefreshScreen(int screenMode) {
 
 #ifndef NO_TIMERS
 
-#ifdef BLUEMSXWII
+#ifdef WII
 
 static int WaitForSync(int maxSpeed, int breakpointHit)
 {

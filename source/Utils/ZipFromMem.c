@@ -22,7 +22,6 @@
 ******************************************************************************
 */
 #include "ZipFromMem.h"
-#include "../Arch/ArchFile.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,7 +44,7 @@ void *fopen_mem_func(void *opaque, const char *filename, int mode)
 unsigned long fread_mem_func(void *opaque, void *stream, void *buf, unsigned long size)
 {
     MemZip *memzip = (MemZip *)opaque;
-    if( memzip->index + (int)size > memzip->size ) {
+    if( memzip->index + size > memzip->size ) {
         size = memzip->size - memzip->index;
     }
     memcpy(buf, (char*)memzip->buffer + memzip->index, size);
@@ -59,7 +58,7 @@ unsigned long fwrite_mem_func(void *opaque, void *stream, const void *buf, unsig
     if( memzip->mode == MZMODE_READ_ONLY ) {
         return -1;
     }
-    if( memzip->index + (int)size > memzip->size ) {
+    if( memzip->index + size > memzip->size ) {
         memzip->size = memzip->index + size;
         memzip->buffer = realloc(memzip->buffer, memzip->size);
     }
@@ -150,7 +149,7 @@ MemZip* MemZipOpenZip(const char *filename, MZMODE mode)
 
     /* read existing zip */
     if( mode == MZMODE_READ_ONLY || mode == MZMODE_MODIFY ) {
-        FILE *file = archFileOpen(filename, "rb");
+        FILE *file = fopen(filename, "rb");
         if( file == NULL ) {
             free(zip);
             return NULL;
@@ -165,7 +164,7 @@ MemZip* MemZipOpenZip(const char *filename, MZMODE mode)
 
     /* create file if needed */
     if( mode == MZMODE_CREATE || mode == MZMODE_MODIFY ) {
-        zip->file = archFileOpen(filename, "wb");
+        zip->file = fopen(filename, "wb");
         if( zip->file == NULL ) {
             if( zip->buffer != NULL ) {
                 free(zip->buffer);

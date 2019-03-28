@@ -38,8 +38,8 @@ woven in by Terry Thorsen 1/2003.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <zlib/zlib.h>
-#include "../Unzip/unzip.h"
+#include "zlib.h"
+#include "unzip.h"
 
 #ifdef STDC
 #  include <stddef.h>

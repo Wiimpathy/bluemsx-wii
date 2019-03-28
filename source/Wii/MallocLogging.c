@@ -7,6 +7,10 @@
 #include <machine/processor.h>
 #include <wiiuse/wpad.h>
 
+#if 0
+#include "kbdlib.h"
+#endif
+
 #if MALLOC_LOGGING
 
 #define MALLOC_LOG_DEBUG 0

@@ -30,7 +30,7 @@
 #include "DirAsDisk.h"
 
 #pragma warning(disable: 4996)
-#if defined(WIN32) || defined(WINDOWS_HOST) || defined(UNDER_CE)
+#if defined(WIN32) || defined (WINDOWS_HOST)
 #include <io.h> // not on Linux
 #endif
 
@@ -43,9 +43,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <ctype.h>
-#include "../Arch/ArchFile.h"
 #ifdef USE_ARCH_GLOB
-#include "../Arch/ArchGlob.h"
+#include "ArchGlob.h"
 #else
 #include <windows.h>
 #endif
@@ -548,7 +547,7 @@ static int add_single_file(char *name, char *pathname) {
   strcpy (fullname,pathname);
   strcat (fullname,"/");
   strcat (fullname,name);
-  fileid=open (fullname,O_BINARY|O_RDONLY, S_IREAD);
+  fileid=open (fullname,O_BINARY|O_RDONLY);
   
   if (fileid < 0) {
       return -1;
@@ -729,7 +728,7 @@ static int add_single_file_svi(int diskType, char *name, char *pathname)
         return 1;
     }
 
-    fpImport = archFileOpen(fullname, "rb");
+    fpImport = fopen(fullname, "rb");
     if (!fpImport) {
         return 1;
     }
@@ -875,7 +874,7 @@ static int add_single_file_cpm(int diskType, char *name, char *pathname)
         memcpy(filename, myname, strlen(myname));
     }
 
-    fpImport = archFileOpen(fullname, "rb");
+    fpImport = fopen(fullname, "rb");
     if (!fpImport) {
         return 1;
     }
@@ -907,7 +906,7 @@ static int add_single_file_cpm(int diskType, char *name, char *pathname)
     memcpy(&myDir.name, filename, 8);
     memcpy(&myDir.ext, extension, 3);
 
-    (void)fseek(fpImport, 0L, SEEK_SET);
+    rewind(fpImport);
     do {
         memset(&fileBuf, 0, dpbBLS);
         myDir.pointers[alCount] = alBlockNo;

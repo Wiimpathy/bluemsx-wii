@@ -26,10 +26,10 @@
 ******************************************************************************
 */
 #include "MsxGunstick.h"
-#include "../Input/InputEvent.h"
-#include "../Arch/ArchInput.h"
-#include "../VideoChips/FrameBuffer.h"
-#include "../VideoChips/VDP.h"
+#include "InputEvent.h"
+#include "ArchInput.h"
+#include "FrameBuffer.h"
+#include "VDP.h"
 
 #include <stdlib.h>
 

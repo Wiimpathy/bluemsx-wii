@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_SF7000IPL_H
 #define ROMMAPPER_SF7000IPL_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperSf7000IplCreate(char* filename, UInt8* romData, 
                              int size, int slot, int sslot, int startPage);

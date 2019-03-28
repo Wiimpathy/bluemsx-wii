@@ -27,9 +27,9 @@
 */
 #include "CoinDevice.h"
 #include <stdlib.h>
-#include "../Input/InputEvent.h"
-#include "../Memory/DeviceManager.h"
-#include "../Board/Board.h"
+#include "InputEvent.h"
+#include "DeviceManager.h"
+#include "Board.h"
 
 struct CoinDevice {
     int deviceHandle;

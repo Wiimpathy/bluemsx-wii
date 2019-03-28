@@ -26,8 +26,8 @@
 ******************************************************************************
 */
 #include "ft245.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
+#include "Board.h"
+#include "SaveState.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -36,7 +36,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include <time.h>
-#include "../IoDevice/Disk.h"
+#include "Disk.h"
 
 typedef UInt8 (*ReadCb)(void*);
 typedef void  (*WriteCb)(void*, UInt8);

@@ -28,10 +28,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "UartIO.h"
-#include "../Arch/ArchFile.h"
-#include "../Arch/ArchUart.h"
-#include "../SoundChips/DAC.h"
-#include "../Board/Board.h"
+#include "ArchUart.h"
+#include "DAC.h"
+#include "Board.h"
 
 typedef struct UartIO {
     UartType type;
@@ -55,7 +54,7 @@ static void setType(UartIO* uartIO)
         uartIO->uartReady = archUartCreate(uartIO->recvCallback);
         break;
     case UART_FILE:
-        uartIO->file = archFileOpen(theFileName, "w+");
+        uartIO->file = fopen(theFileName, "w+");
         break;
     }
 }

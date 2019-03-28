@@ -27,9 +27,9 @@
 */
 
 #include "I8251.h"
-#include "../Utils/SaveState.h"
-#include "../Board/Board.h"
-#include "../Arch/ArchEvent.h"
+#include "SaveState.h"
+#include "Board.h"
+#include "ArchEvent.h"
 #include <stdlib.h>
 
 static int transmitDummy(void* ref, UInt8 value) {

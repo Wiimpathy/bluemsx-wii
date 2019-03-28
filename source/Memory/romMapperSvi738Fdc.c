@@ -26,13 +26,13 @@
 ******************************************************************************
 */
 #include "romMapperSvi738Fdc.h"
-#include "../IoDevice/WD2793.h"
-#include "../IoDevice/Led.h"
-#include "../Media/MediaDb.h"
-#include "../IoDevice/Disk.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
+#include "WD2793.h"
+#include "Led.h"
+#include "MediaDb.h"
+#include "Disk.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

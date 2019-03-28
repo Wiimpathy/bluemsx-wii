@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <fat.h>
 #include "DirectoryList.h"
 
 /*************************************************
@@ -22,13 +23,13 @@ DirElement::~DirElement()
 void DirElement::SetName(const char *str)
 {
     if( name ) free(name);
-    name = _strdup(str);
+    name = strdup(str);
 }
 
 void DirElement::SetDirectory(const char *str)
 {
     if( directory ) free(directory);
-    directory = _strdup(str);
+    directory = strdup(str);
 }
 
 char* DirElement::GetName()

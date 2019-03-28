@@ -14,7 +14,7 @@ typedef unsigned char  byte;
 typedef unsigned short word;
 
 extern "C" {
-#include "../SoundChips/AudioMixer.h"
+#include "AudioMixer.h"
 }
 
 

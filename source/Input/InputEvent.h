@@ -28,11 +28,7 @@
 #ifndef INPUT_EVENT_H
 #define INPUT_EVENT_H
 
-#include "../common/MsxTypes.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MsxTypes.h"
 
 void inputEventReset();
 
@@ -238,9 +234,8 @@ const char* inputEventCodeToString(int eventCode);
 #define EC_HOT_WINDOW_SIZE_NORMAL       195
 #define EC_HOT_WINDOW_SIZE_FULLSCREEN   196
 #define EC_HOT_FULLSCREEN_TOGGLE        197
-#define EC_HOT_SHOW_TRAINER             198
 
-#define EC_KEYCOUNT                     199
+#define EC_KEYCOUNT                     198
 
 // Inlines
 extern int eventMap[256];
@@ -259,9 +254,5 @@ extern int eventMap[256];
 #define inputEventSet(eventCode) eventMap[eventCode] = 1
 #define inputEventUnset(eventCode) eventMap[eventCode] = 0
 #define inputEventGetState(eventCode) eventMap[eventCode]
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

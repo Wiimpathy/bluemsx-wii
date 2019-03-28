@@ -30,7 +30,7 @@
 
 #include "../Common/MsxTypes.h"
 
-#ifdef BLUEMSXWII
+#ifdef WII
 #define FB_MAX_LINE_WIDTH 544
 #else
 #define FB_MAX_LINE_WIDTH 640
@@ -67,10 +67,6 @@ typedef enum {
     MIXMODE_NONE     = 8
 } FrameBufferMixMode;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void frameBufferSetFrameCount(int frameCount);
 
 FrameBuffer* frameBufferGetViewFrame();
@@ -95,9 +91,7 @@ FrameBufferData* frameBufferGetActive();
 
 void frameBufferSetBlendFrames(int blendFrames);
 
-#ifdef BLUEMSXWII
-void frameBufferSync(void);
-
+#ifdef WII
 #define BKMODE_TRANSPARENT 0x0020
 #define videoGetColor(R, G, B) \
           ((((int)(R) >> 3) << 11) | (((int)(G) >> 3) << 6) | ((int)(B) >> 3))
@@ -128,10 +122,6 @@ int    frameBufferGetMaxWidth(FrameBuffer* frameBuffer);
 #define frameBufferSetLineCount(frameBuffer, val)       frameBuffer->lines     = val
 #define frameBufferGetLineCount(frameBuffer)            frameBuffer->lines
 #define frameBufferGetMaxWidth(frameBuffer)             frameBuffer->maxWidth
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 #endif

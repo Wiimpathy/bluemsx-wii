@@ -28,7 +28,7 @@
 #ifndef ROM_LOADER_H
 #define ROM_LOADER_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 UInt8* romLoad(const char *fileName, const char *fileInZipFile, int* size);
 

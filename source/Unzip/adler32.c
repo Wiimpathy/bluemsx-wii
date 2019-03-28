@@ -6,7 +6,7 @@
 /* @(#) $Id: adler32.c,v 1.2 2008/03/30 18:38:46 dvik Exp $ */
 
 #define ZLIB_INTERNAL
-#include <zlib/zlib.h>
+#include "zlib.h"
 
 #define BASE 65521UL    /* largest prime smaller than 65536 */
 #define NMAX 5552

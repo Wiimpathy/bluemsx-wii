@@ -27,12 +27,12 @@
 ******************************************************************************
 */
 #include "romMapperGameReader.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../IoDevice/GameReader.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "GameReader.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -227,11 +227,11 @@ int romMapperGameReaderCreate(int cartSlot, int slot, int sslot)
 ******************************************************************************
 */
 #include "romMapperGameReader.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "IoPort.h"
 #include "GameReader.h"
 #include <stdlib.h>
 #include <string.h>

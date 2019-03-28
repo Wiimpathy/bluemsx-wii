@@ -28,18 +28,10 @@
 #ifndef ARCH_UART_H
 #define ARCH_UART_H
 
-#include "../Common/MsxTypes.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MsxTypes.h"
 
 void archUartTransmit(UInt8 value);
 int archUartCreate(void (*archUartReceiveCallback) (UInt8));
 void archUartDestroy(void);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

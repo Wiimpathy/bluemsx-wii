@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_SFG05_H
 #define ROMMAPPER_SFG05_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperSfg05Create(char* filename, UInt8* romData, 
                          int size, int slot, int sslot, int startPage);

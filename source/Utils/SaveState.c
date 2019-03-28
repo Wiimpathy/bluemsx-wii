@@ -26,10 +26,13 @@
 ******************************************************************************
 */
 #include "SaveState.h"
-#include "../Utils/ziphelper.h"
+#include "ziphelper.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
+// cannot include ../wii/StorageSetup.h
+extern char *GetStorageRootPath(void);
 
 struct SaveState {
     UInt32 size;
@@ -130,9 +133,9 @@ SaveState* saveStateOpenForWrite(const char* fileName) {
     state->size      = 0;
     state->offset    = 0;
     state->buffer    = NULL;
-    
+
     strcpy(state->fileName, getIndexedFilename(fileName));
-    
+
     return state;
 }
 
@@ -151,7 +154,7 @@ static void stateExtendBuffer(SaveState* state, UInt32 extend) {
     state->buffer = realloc(state->buffer, state->size * sizeof(UInt32));
 }
 
-void saveStateSet(SaveState* state, const char* tagName, UInt32 value) 
+void saveStateSet(SaveState* state, const char* tagName, UInt32 value)
 {
     checkTag(state, tagName);
 
@@ -161,7 +164,7 @@ void saveStateSet(SaveState* state, const char* tagName, UInt32 value)
     state->buffer[state->offset++] = value;
 }
 
-void saveStateSetBuffer(SaveState* state, const char* tagName, void* buffer, UInt32 length) 
+void saveStateSetBuffer(SaveState* state, const char* tagName, void* buffer, UInt32 length)
 {
     UInt32 sizedw = (length + sizeof(UInt32) - 1) / sizeof(UInt32);
     checkTag(state, tagName);
@@ -224,13 +227,25 @@ void saveStateGetBuffer(SaveState* state, const char* tagName, void* buffer, UIn
         elemTag = state->buffer[offset++];
         elemLen = state->buffer[offset++];
         if (elemTag == tag) {
+#ifndef WII
             memcpy(buffer, state->buffer + offset, length < elemLen ? length : elemLen);
-#ifdef WII
+#else
             /* A bit of a dirty trick, change old-style path names to make it possible
-               to play old (V1.0) saves on newer versions */
-            if( strncmp("fat:/", buffer, 5) == 0 ) {
-                strcpy(buffer, "sd:/");
-                strcat(buffer, &((char*)buffer)[5]);
+               to play old (V1.0) saves on newer versions
+               Path names have started with fat:, sd: and usb:
+               Also make possible to switch between sd and usb */
+            char *sbuf = (char *)(state->buffer + offset);
+
+            if (strncmp(sbuf, "fat:/", 5) == 0 ||
+                strncmp(sbuf, "usb:/", 5) == 0 ||
+                strncmp(sbuf, "sd:/",  4) == 0) {
+                int i = 0;
+                while( sbuf[i++] != '/' ); // strip off the storage root
+
+                strcpy((char *)buffer, GetStorageRootPath());
+                strcat((char *)buffer, &sbuf[i]);
+            } else {
+                memcpy(buffer, state->buffer + offset, length < elemLen ? length : elemLen);
             }
 #endif
         }

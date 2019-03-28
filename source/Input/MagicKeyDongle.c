@@ -27,7 +27,7 @@
 */
 #include "MagicKeyDongle.h"
 #include <stdlib.h>
-#include "../Utils/SaveState.h"
+#include "SaveState.h"
 
 struct MagicKeyDongle {
     MsxJoystickDevice joyDevice;

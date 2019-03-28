@@ -30,10 +30,10 @@
 #include "wd33c93.h"
 #include "ScsiDefs.h"
 #include "ScsiDevice.h"
-#include "../Arch/ArchCdrom.h"
-#include "../IoDevice/Disk.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
+#include "ArchCdrom.h"
+#include "Disk.h"
+#include "Board.h"
+#include "SaveState.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

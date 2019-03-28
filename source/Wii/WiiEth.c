@@ -25,7 +25,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchEth.h"
+#include "ArchEth.h"
 
 void archEthGetMacAddress(UInt8* macAddress) {}
 

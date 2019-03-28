@@ -28,7 +28,7 @@
 #ifndef RAM_MAPPER_H
 #define RAM_MAPPER_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int ramMapperCreate(int size, int slot, int sslot, int startPage, UInt8** ramPtr, UInt32* ramSize);
 

@@ -25,18 +25,17 @@
 **
 ******************************************************************************
 */
-#include "../IoDevice/Disk.h"
+#include "Disk.h"
 #include "DirAsDisk.h"
-#include "../Utils/ziphelper.h"
+#include "ziphelper.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <sys/stat.h>
-#include "../Arch/ArchFile.h"
 
 
 // PacketFileSystem.h Need to be included after all other includes
-#include "../Utils/PacketFileSystem.h"
+#include "PacketFileSystem.h"
 
 #define MAXSECTOR (2 * 9 * 81)
 
@@ -649,11 +648,11 @@ UInt8 diskChange(int driveId, char* fileName, const char* fileInZipFile)
         return ramImageBuffer[driveId] != NULL;
     }
 
-    drives[driveId] = archFileOpen(fileName, "r+b");
+    drives[driveId] = fopen(fileName, "r+b");
     RdOnly[driveId] = 0;
 
     if (drives[driveId] == NULL) {
-        drives[driveId] = archFileOpen(fileName, "rb");
+        drives[driveId] = fopen(fileName, "rb");
         RdOnly[driveId] = 1;
     }
 
@@ -663,7 +662,7 @@ UInt8 diskChange(int driveId, char* fileName, const char* fileInZipFile)
 
     fname = makeErrorsFileName(fileName);
     if( fname != NULL ) {
-        FILE *f = archFileOpen(fname, "rb");
+        FILE *f = fopen(fname, "rb");
         if( f != NULL ) {
             char *p = (char*)malloc(DISK_ERRORS_SIZE);
             if( fread(p, 1, DISK_ERRORS_HEADER_SIZE, f) == DISK_ERRORS_HEADER_SIZE ) {

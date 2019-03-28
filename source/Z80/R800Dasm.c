@@ -7,7 +7,7 @@
 ** and is licensed under GPL. 
 ******************************************************************************
 */
-#include "../Z80/R800Dasm.h"
+#include "R800Dasm.h"
 #include <stdio.h>
 #include <string.h>
 

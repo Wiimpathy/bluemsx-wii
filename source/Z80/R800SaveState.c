@@ -29,8 +29,8 @@
 **
 ******************************************************************************
 */
-#include "../Z80/R800SaveState.h"
-#include "../Utils/SaveState.h"
+#include "R800SaveState.h"
+#include "SaveState.h"
 #include <stdio.h>
 
 

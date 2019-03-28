@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_NATIONAL_H
 #define ROMMAPPER_NATIONAL_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperNationalCreate(char* filename, UInt8* romData, 
                             int size, int slot, int sslot, int startPage);

@@ -25,11 +25,10 @@
 **
 ******************************************************************************
 */
-#include "../SoundChips/AudioMixer.h"
-#include "../Board/Board.h"
-#include "../Arch/ArchFile.h"
-#include "../Arch/ArchTimer.h"
-#include "../Arch/ArchMidi.h"
+#include "AudioMixer.h"
+#include "Board.h"
+#include "ArchTimer.h"
+#include "ArchMidi.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -638,7 +637,7 @@ void mixerStartLog(Mixer* mixer, char* fileName)
     if (mixer->logging == 1) {
         mixerStopLog(mixer);
     }
-    mixer->file = archFileOpen(fileName, "wb");
+    mixer->file = fopen(fileName, "wb");
     if (mixer->file != NULL) {
         fseek(mixer->file, sizeof(WavHeader), SEEK_SET);
         mixer->logging = 1;

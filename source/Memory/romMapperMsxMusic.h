@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_MSX_MUSIC_H
 #define ROMMAPPER_MSX_MUSIC_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMsxMusicCreate(char* filename, UInt8* romData, 
                             int size, int slot, int sslot, int startPage);

@@ -25,29 +25,28 @@
 **
 ******************************************************************************
 */
-#include "../Board/Board.h"
+#include "Board.h"
 #include "MSX.h"
 #include "SVI.h"
 #include "SG1000.h"
 #include "Coleco.h"
 #include "Adam.h"
-#include "../SoundChips/AudioMixer.h"
-#include "../SoundChips/YM2413.h"
-#include "../SoundChips/Y8950.h"
-#include "../SoundChips/Moonsound.h"
-#include "../Utils/SaveState.h"
-#include "../Utils/ziphelper.h"
-#include "../Arch/ArchFile.h"
-#include "../Arch/ArchNotifications.h"
-#include "../VideoChips/VideoManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Memory/MegaromCartridge.h"
-#include "../IoDevice/Disk.h"
-#include "../VideoChips/VideoManager.h"
-#include "../IoDevice/Casette.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/RomLoader.h"
-#include "../Input/JoystickPort.h"
+#include "AudioMixer.h"
+#include "YM2413.h"
+#include "Y8950.h"
+#include "Moonsound.h"
+#include "SaveState.h"
+#include "ziphelper.h"
+#include "ArchNotifications.h"
+#include "VideoManager.h"
+#include "DebugDeviceManager.h"
+#include "MegaromCartridge.h"
+#include "Disk.h"
+#include "VideoManager.h"
+#include "Casette.h"
+#include "MediaDb.h"
+#include "RomLoader.h"
+#include "JoystickPort.h"
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
@@ -326,7 +325,7 @@ void boardCaptureStart(const char* filename) {
 
     cap.initStateSize = 0;
     boardSaveState("cap.tmp");
-    f = archFileOpen("cap.tmp", "rb");
+    f = fopen("cap.tmp", "rb");
     if (f != NULL) {
         cap.initStateSize = fread(cap.initState, 1, sizeof(cap.initState), f);
         fclose(f);
@@ -352,7 +351,7 @@ void boardCaptureStop() {
         cap.state = CAPTURE_PLAY;
         cap.inputCnt = rleEncGetLength();
 
-        f = archFileOpen(cap.filename, "wb");
+        f = fopen(cap.filename, "wb");
         if (f != NULL) {
             fwrite(cap.initState, 1, cap.initStateSize, f);
             fclose(f);
@@ -649,7 +648,7 @@ void boardCaptureStart(const char* filename) {
 
     cap.initStateSize = 0;
     boardSaveState("cap.tmp");
-    f = archFileOpen("cap.tmp", "rb");
+    f = fopen("cap.tmp", "rb");
     if (f != NULL) {
         cap.initStateSize = fread(cap.initState, 1, sizeof(cap.initState), f);
         fclose(f);
@@ -675,7 +674,7 @@ void boardCaptureStop() {
         cap.state = CAPTURE_PLAY;
         cap.inputCnt = rleEncGetLength();
 
-        f = archFileOpen(cap.filename, "wb");
+        f = fopen(cap.filename, "wb");
         if (f != NULL) {
             fwrite(cap.initState, 1, cap.initStateSize, f);
             fclose(f);
@@ -909,7 +908,7 @@ void boardCaptureStart(const char* filename) {
 
     cap.initStateSize = 0;
     boardSaveState("cap.tmp");
-    f = archFileOpen("cap.tmp", "rb");
+    f = fopen("cap.tmp", "rb");
     if (f != NULL) {
         cap.initStateSize = fread(cap.initState, 1, sizeof(cap.initState), f);
         fclose(f);
@@ -934,7 +933,7 @@ void boardCaptureStop() {
         cap.endTime64 = boardSystemTime64();
         cap.state = CAPTURE_PLAY;
 
-        f = archFileOpen(cap.filename, "wb");
+        f = fopen(cap.filename, "wb");
         if (f != NULL) {
             fwrite(cap.initState, 1, cap.initStateSize, f);
             fclose(f);
@@ -1159,7 +1158,7 @@ int boardRun(Machine* machine,
              int frequency,
              int (*syncCallback)(int, int))
 {
-    ZipFile *zip = NULL;
+    ZipFile *zip;
     int loadState = 0;
     int success = 0;
 
@@ -1497,7 +1496,7 @@ void boardSaveState(const char* stateFile)
 
     bitmap = archScreenCapture(SC_SMALL, &size, 1);
     if( bitmap != NULL && size > 0 ) {
-#ifdef BLUEMSXWII
+#ifdef WII
         zipAppendFile("screenshot.png", bitmap, size);
 #else
         zipAppendFile("screenshot.bmp", bitmap, size);

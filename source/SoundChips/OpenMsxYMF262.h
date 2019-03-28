@@ -6,7 +6,7 @@
 
 #include <string>
 extern "C" {
-#include "../Board/Board.h"
+#include "Board.h"
 }
 
 using namespace std;
@@ -17,7 +17,7 @@ typedef unsigned char  byte;
 typedef unsigned short word;
 
 extern "C" {
-#include "../SoundChips/AudioMixer.h"
+#include "AudioMixer.h"
 }
 
 

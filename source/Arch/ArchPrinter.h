@@ -28,20 +28,12 @@
 #ifndef ARCH_PRINTER_H
 #define ARCH_PRINTER_H
 
-#include "../Common/MsxTypes.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MsxTypes.h"
 
 void archPrinterWrite(UInt8 value);
 int archPrinterCreate(void);
 void archPrinterDestroy(void);
 
 void archForceFormFeed(void);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

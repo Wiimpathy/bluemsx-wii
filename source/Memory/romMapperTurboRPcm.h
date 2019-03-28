@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_TURBORPCM_H
 #define ROMMAPPER_TURBORPCM_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperTurboRPcmCreate();
 

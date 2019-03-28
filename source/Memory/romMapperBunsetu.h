@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_BUNSETU_H
 #define ROMMAPPER_BUNSETU_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperBunsetuCreate(char* filename, UInt8* romData, 
                            int size, int slot, int sslot, int startPage,

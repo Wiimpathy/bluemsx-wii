@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_NETTOUYAKYUU_H
 #define ROMMAPPER_NETTOUYAKYUU_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperNettouYakyuuCreate(char* filename, UInt8* romData, 
                           int size, int slot, int sslot, int startPage);

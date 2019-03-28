@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KONAMI4NF_H
 #define ROMMAPPER_KONAMI4NF_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKonami4nfCreate(char* filename, UInt8* romData, 
                              int size, int slot, int sslot, int startPage);

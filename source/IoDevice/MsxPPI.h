@@ -28,7 +28,7 @@
 #ifndef MSX_PPI_H
 #define MSX_PPI_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 void msxPPICreate(int ignoreKeyboard);
 

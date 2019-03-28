@@ -25,17 +25,17 @@
 **
 ******************************************************************************
 */
-#include "../VideoChips/VDP.h"
+#include "VDP.h"
 #include "V9938.h"
-#include "../Board/Board.h"
-#include "../Board/Board.h"
-#include "../Memory/IoPort.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../VideoChips/FrameBuffer.h"
-#include "../Arch/ArchVideoIn.h"
-#include "../Language/Language.h"
+#include "Board.h"
+#include "Board.h"
+#include "IoPort.h"
+#include "SaveState.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "FrameBuffer.h"
+#include "ArchVideoIn.h"
+#include "Language.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

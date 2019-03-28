@@ -70,6 +70,7 @@ struct nameint {
 	char *name;
 };
 
+#if 0
 static struct nameint kbdenc_tab[] = {
 	KB_ENCTAB
 };
@@ -77,6 +78,7 @@ static struct nameint kbdenc_tab[] = {
 static struct nameint kbdvar_tab[] = {
 	KB_VARTAB
 };
+#endif
 
 static int _sc_maplen = 0;					/* number of entries in sc_map */
 static struct wscons_keymap *_sc_map = 0;	/* current translation map */
@@ -122,6 +124,7 @@ static __inline__ void __lwp_queue_init_empty(lwp_queue *queue)
 	queue->last = __lwp_queue_head(queue);
 }
 
+#if 0
 static kbd_t _get_keymap_by_name(const char *identifier) {
 	char name[64];
 	u8 i, j;
@@ -164,6 +167,7 @@ static kbd_t _get_keymap_by_name(const char *identifier) {
 
 	return res;
 }
+#endif
 
 //Add an event to the event queue
 static s32 _kbd_addEvent(const keyboard_event *event) {
@@ -494,11 +498,13 @@ static const devoptab_t std_in =
 //Initialize USB and USB_KEYBOARD and the event queue
 s32 KEYBOARD_Init(keyPressCallback keypress_cb)
 {
+#if 0
 	int fd;
 	struct stat st;
 	char keymap[64] = {0};
 	size_t i;
-
+#endif
+    
 // TIM: Removed calling USB_Initialize() since it is already done by libogc
 #if 0
 	if (USB_Initialize() != IPC_OK)
@@ -511,6 +517,10 @@ s32 KEYBOARD_Init(keyPressCallback keypress_cb)
 	}
 
 	if (_ukbd_keymapdata.layout == KB_NONE) {
+#if 1
+        // TIM: Just use the US map
+        _ukbd_keymapdata.layout = KB_US;
+#else
 		keymap[0] = 0;
 		fd = open("/MSX/wiikbd.map", O_RDONLY);
 
@@ -530,6 +540,7 @@ s32 KEYBOARD_Init(keyPressCallback keypress_cb)
 		}
 
 		_ukbd_keymapdata.layout = _get_keymap_by_name(keymap);
+#endif
 	}
 
 	if (_ukbd_keymapdata.layout == KB_NONE) {

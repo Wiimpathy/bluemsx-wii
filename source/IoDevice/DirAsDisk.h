@@ -28,7 +28,7 @@
 #ifndef DIR_AS_DISK_H
 #define DIR_AS_DISK_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef enum {
     DDT_MSX                = 0,

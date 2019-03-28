@@ -13,7 +13,7 @@
 ** it under the terms of the GNU General Public License as published by
 ** the Free Software Foundation; either version 2 of the License, or
 ** (at your option) any later version.
-**
+** 
 ** This program is distributed in the hope that it will be useful,
 ** but WITHOUT ANY WARRANTY; without even the implied warranty of
 ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -26,11 +26,11 @@
 ******************************************************************************
 */
 
-#include "../Debugger/Debugger.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Emulator/Emulator.h"
-#include "../Emulator/Actions.h"
-#include "../Board/Board.h"
+#include "Debugger.h"
+#include "DebugDeviceManager.h"
+#include "Emulator.h"
+#include "Actions.h"
+#include "Board.h"
 #include <stdlib.h>
 
 struct BlueDebugger {
@@ -119,6 +119,7 @@ int debuggerCheckVramAccess(void)
 void debuggerNotifyEmulatorStart()
 {
     int i;
+    
     dbgState = DBG_RUNNING;
 
     for (i = 0; i < MAX_DEBUGGERS; i++) {
@@ -131,6 +132,7 @@ void debuggerNotifyEmulatorStart()
 void debuggerNotifyEmulatorStop()
 {
     int i;
+
     dbgState = DBG_STOPPED;
 
     for (i = 0; i < MAX_DEBUGGERS; i++) {
@@ -143,6 +145,7 @@ void debuggerNotifyEmulatorStop()
 void debuggerNotifyEmulatorPause()
 {
     int i;
+    
     dbgState = DBG_PAUSED;
 
     for (i = 0; i < MAX_DEBUGGERS; i++) {
@@ -155,6 +158,7 @@ void debuggerNotifyEmulatorPause()
 void debuggerNotifyEmulatorResume()
 {
     int i;
+    
     dbgState = DBG_RUNNING;
 
     for (i = 0; i < MAX_DEBUGGERS; i++) {
@@ -167,6 +171,7 @@ void debuggerNotifyEmulatorResume()
 void debuggerNotifyEmulatorReset()
 {
     int i;
+    
     dbgState = DBG_RUNNING;
 
     for (i = 0; i < MAX_DEBUGGERS; i++) {
@@ -179,6 +184,7 @@ void debuggerNotifyEmulatorReset()
 void debuggerTrace(const char* str)
 {
     int i;
+
     for (i = 0; i < MAX_DEBUGGERS; i++) {
         if (debuggerList[i] != NULL) {
             debuggerList[i]->onDebugTrace(debuggerList[i]->ref, str);
@@ -189,6 +195,7 @@ void debuggerTrace(const char* str)
 void debuggerSetBreakpoint(UInt16 slot, UInt16 page, UInt16 address)
 {
     int i;
+
     for (i = 0; i < MAX_DEBUGGERS; i++) {
         if (debuggerList[i] != NULL) {
             debuggerList[i]->onDebugSetBp(debuggerList[i]->ref, slot, page, address);
@@ -196,10 +203,10 @@ void debuggerSetBreakpoint(UInt16 slot, UInt16 page, UInt16 address)
     }
 }
 
-DbgSnapshot* dbgSnapshotCreate()
+DbgSnapshot* dbgSnapshotCreate() 
 {
     DbgSnapshot* dbgSnapshot;
-
+    
     if (dbgState != DBG_PAUSED) {
         return NULL;
     }
@@ -243,9 +250,6 @@ void dbgSnapshotDestroy(DbgSnapshot* dbgSnapshot)
             if (dbgDevice->ioPorts[j] != NULL) {
                 free(dbgDevice->ioPorts[j]);
             }
-        }
-        if (dbgDevice->callstack != NULL) {
-            free(dbgDevice->callstack);
         }
 
         free(dbgDevice);
@@ -367,4 +371,4 @@ void dbgEnableVramAccessCheck(int enable)
     else {
         debuggerVramAccessEnable--;
     }
-}
+}    

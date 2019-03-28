@@ -32,17 +32,9 @@
 
 typedef struct _Shortcuts Shortcuts;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 Shortcuts* shortcutsCreate(void);
 void shortcutsDestroy(Shortcuts* shortcuts);
 void shortcutCheckDown(Shortcuts* s, int key);
 void shortcutCheckUp(Shortcuts* s, int key);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

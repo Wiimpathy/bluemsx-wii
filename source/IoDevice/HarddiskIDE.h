@@ -28,7 +28,7 @@
 #ifndef HARDDISK_IDE_H
 #define HARDDISK_IDE_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct HarddiskIde HarddiskIde;
 

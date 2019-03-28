@@ -28,7 +28,7 @@
 #ifndef SRAMMAPPER_MATSUSHITA_H
 #define SRAMMAPPER_MATSUSHITA_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int sramMapperMatsushitaCreate();
 

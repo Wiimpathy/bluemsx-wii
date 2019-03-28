@@ -28,8 +28,8 @@
 #ifndef VDP_H
 #define VDP_H
 
-#include "../Common/MsxTypes.h"
-#include "../VideoChips/VideoManager.h"
+#include "MsxTypes.h"
+#include "VideoManager.h"
 
 typedef enum { VDP_V9938, VDP_V9958, VDP_TMS9929A, VDP_TMS99x8A } VdpVersion;
 typedef enum { VDP_SYNC_AUTO, VDP_SYNC_50HZ, VDP_SYNC_60HZ } VdpSyncMode; 

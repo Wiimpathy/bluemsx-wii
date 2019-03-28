@@ -1,7 +1,7 @@
 #ifndef __SHA1_HH__
 #define __SHA1_HH__
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 #include <string>
 

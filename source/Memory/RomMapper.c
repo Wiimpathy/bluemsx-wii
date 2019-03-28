@@ -25,10 +25,9 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchFile.h"
-#include "../Memory/romMapper.h"
-#include "../Common/msxTypes.h"
-#include "../Utils/TokenExtract.h"
+#include "RomMapper.h"
+#include "MsxTypes.h"
+#include "TokenExtract.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -198,7 +197,7 @@ RomType romMapperRomFromFile(const void *romData, int size, char* extendedName)
     UInt32 crc = crc32(romData, size);
     char buffer[128];
     RomType romType = ROM_UNKNOWN;
-    FILE* file = archFileOpen(romdbFilename, "r");
+    FILE* file = fopen(romdbFilename, "r");
 
     if (file == NULL) {
         return ROM_UNKNOWN;
@@ -404,7 +403,7 @@ void romMapperGetDiskInfo(const void *data, int size, char* extendedName)
             return;
         }
 
-        file = archFileOpen(diskdbFilename, "r");
+        file = fopen(diskdbFilename, "r");
         if (file == NULL) {
             return;
         }
@@ -454,7 +453,7 @@ void romMapperGetCasInfo(const void *data, int size, char* extendedName)
             return;
         }
 
-        file = archFileOpen(casdbFilename, "r");
+        file = fopen(casdbFilename, "r");
         if (file == NULL) {
             return;
         }

@@ -28,8 +28,8 @@
 #ifndef ZIPHELPER_H
 #define ZIPHELPER_H
 
-#include "../Unzip/zip.h"
-#include "../Unzip/unzip.h"
+#include "zip.h"
+#include "unzip.h"
 #include "ZipFromMem.h"
 
 #ifdef __cplusplus

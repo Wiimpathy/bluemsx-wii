@@ -30,8 +30,8 @@
 #ifndef JOYSTICK_IO_H
 #define JOYSTICK_IO_H
 
-#include "../Common/msxTypes.h"
-#include "../SoundChips/AY8910.h"
+#include "MsxTypes.h"
+#include "AY8910.h"
 
 typedef enum { 
     JOYTYPE_NONE = 0, 

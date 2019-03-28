@@ -6,7 +6,7 @@
 /* @(#) $Id: uncompr.c,v 1.2 2008/03/30 18:38:46 dvik Exp $ */
 
 #define ZLIB_INTERNAL
-#include <zlib/zlib.h>
+#include "zlib.h"
 
 /* ===========================================================================
      Decompresses the source buffer into the destination buffer.  sourceLen is

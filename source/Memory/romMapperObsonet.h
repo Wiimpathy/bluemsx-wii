@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_OBSONET_H
 #define ROMMAPPER_OBSONET_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperObsonetCreate(char* filename, UInt8* romData, 
                            int size, int slot, int sslot, int startPage);

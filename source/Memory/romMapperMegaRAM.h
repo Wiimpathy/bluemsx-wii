@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_MEGARAM_H
 #define ROMMAPPER_MEGARAM_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMegaRAMCreate(int size, int slot, int sslot, int startPage);
 

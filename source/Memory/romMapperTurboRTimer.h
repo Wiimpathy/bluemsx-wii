@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_TURBORTIMER_H
 #define ROMMAPPER_TURBORTIMER_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperTurboRTimerCreate();
 void romMapperTurboRTimerSync();

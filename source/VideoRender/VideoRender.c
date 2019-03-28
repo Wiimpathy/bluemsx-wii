@@ -26,10 +26,10 @@
 **
 ******************************************************************************
 */
-#include "../VideoRender/VideoRender.h"
-#include "../VideoChips/FrameBuffer.h"
-#include "../Arch/ArchTimer.h"
-#include "../Emulator/Emulator.h"
+#include "VideoRender.h"
+#include "FrameBuffer.h"
+#include "ArchTimer.h"
+#include "Emulator.h"
 #include "Scalebit.h"
 #include "hq2x.h"
 #include "hq3x.h"
@@ -37,7 +37,7 @@
 #include <math.h>
 #include <string.h>
 
-#ifdef BLUEMSXWII
+#ifdef WII
 static UInt16 empty_line_buffer[FB_MAX_LINE_WIDTH];
 
 static int videoRender240(Video* pVideo, FrameBuffer* frame, int bitDepth, int zoom,

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_SONY_HBI55_H
 #define ROMMAPPER_SONY_HBI55_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperSonyHBI55Create();
 

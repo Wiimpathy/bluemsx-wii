@@ -32,14 +32,14 @@
  *  Message system might be imperfect.
  */
 #include "ScsiDevice.h"
-#include "../Arch/ArchCdrom.h"
+#include "ArchCdrom.h"
 #include "ScsiDefs.h"
-#include "../IoDevice/Disk.h"
-#include "../Board/Board.h"
-#include "../Emulator/FileHistory.h"
-#include "../IoDevice/Led.h"
-#include "../Emulator/Properties.h"
-#include "../Utils/SaveState.h"
+#include "Disk.h"
+#include "Board.h"
+#include "FileHistory.h"
+#include "Led.h"
+#include "Properties.h"
+#include "SaveState.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -126,7 +126,7 @@ static FILE* scsiLog = NULL;
 FILE* scsiDeviceLogCreate()
 {
     if (!logNumber) {
-        scsiLog = archFileOpen(SCSIDEBUG, "w");
+        scsiLog = fopen(SCSIDEBUG, "w");
     }
     logNumber++;
     return scsiLog;

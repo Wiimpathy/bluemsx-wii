@@ -26,18 +26,18 @@
 ******************************************************************************
 */
 extern "C" {
-#include "../Common/MsxTypes.h"
-#include "../Media/MediaDb.h"
-#include "../Media/Crc32Calc.h"
-#include "../Utils/TokenExtract.h"
-#include "../Utils/StrcmpNoCase.h"
-#include "../Arch/ArchGlob.h"
-#include "../Board/Board.h"
-#include "../Language/Language.h"
+#include "MsxTypes.h"
+#include "MediaDb.h"
+#include "Crc32Calc.h"
+#include "TokenExtract.h"
+#include "StrcmpNoCase.h"
+#include "ArchGlob.h"
+#include "Board.h"
+#include "Language.h"
 }
 
-#include "../TinyXML/tinyxml.h"
-#include "../Media/Sha1.h"
+#include "tinyxml.h"
+#include "Sha1.h"
 #include <string>
 #include <map>
 

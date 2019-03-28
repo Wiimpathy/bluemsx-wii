@@ -26,10 +26,10 @@
 ******************************************************************************
 */
 #include "SCC.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Language/Language.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "DebugDeviceManager.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 

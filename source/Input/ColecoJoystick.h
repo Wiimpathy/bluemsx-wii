@@ -28,7 +28,7 @@
 #ifndef COLECO_JOYSTICK_H
 #define COLECO_JOYSTICK_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "ColecoJoystickDevice.h"
 
 typedef struct ColecoJoystick ColecoJoystick;

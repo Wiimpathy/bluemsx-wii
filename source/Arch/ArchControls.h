@@ -28,7 +28,7 @@
 #ifndef ARCH_CONTROLS_H
 #define ARCH_CONTROLS_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 
 

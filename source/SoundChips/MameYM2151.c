@@ -10,7 +10,7 @@
 #include <math.h>
 
 #include "MameYM2151.h"
-#include "../Utils/SaveState.h"
+#include "SaveState.h"
 
 
 /* struct describing a single operator */

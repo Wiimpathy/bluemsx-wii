@@ -26,17 +26,17 @@
 ******************************************************************************
 */
 #include "romMapperSfg05.h"
-#include "../Media/MediaDb.h"
-#include "../IoDevice/MidiIO.h"
-#include "../IoDevice/Switches.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Memory/IoPort.h"
-#include "../Board/Board.h"
-#include "../SoundChips/ym2151.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
+#include "MediaDb.h"
+#include "MidiIO.h"
+#include "Switches.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "IoPort.h"
+#include "Board.h"
+#include "ym2151.h"
+#include "SaveState.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -55,7 +55,7 @@
 // NOTES: Cmd bit 3: seems to be enable/disable something (checked before RX
 //        Cmd bit 4: is set when IM2 is used, cleared when IM1 is used
 
-#include "../Arch/ArchEvent.h"
+#include "ArchEvent.h"
 
 #define RX_QUEUE_SIZE 256
 

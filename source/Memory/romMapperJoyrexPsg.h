@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_JOYREX_PSG_H
 #define ROMMAPPER_JOYREX_PSG_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperJoyrexPsgCreate();
 

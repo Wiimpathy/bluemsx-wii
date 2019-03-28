@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_DUMAS_H
 #define ROMMAPPER_DUMAS_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperDumasCreate(char* filename, UInt8* romData, 
                         int size, int slot, int sslot, int startPage,

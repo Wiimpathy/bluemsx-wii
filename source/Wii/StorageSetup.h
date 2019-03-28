@@ -20,11 +20,20 @@
 ******************************************************************************
 */
 
-#include "../GuiBase/GuiContainer.h"
+#include "GuiManager.h"
 
 #define SD_ROOT_DIR  "sd:/"
 #define USB_ROOT_DIR "usb:/"
 #define MSX_DIR      "/MSX"
 
-extern bool SetupStorage(GuiContainer *container, bool bSDMounted, bool bUSBMounted);
+extern bool SetupStorage(GuiManager *manager, bool bSDMounted, bool bUSBMounted);
+extern char *GetMSXRootPath(void);
+
+#ifdef __cplusplus
+    extern "C" {
+#endif
+extern char *GetStorageRootPath(void);
+#ifdef __cplusplus
+}
+#endif
 

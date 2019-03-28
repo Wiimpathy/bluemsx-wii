@@ -28,11 +28,7 @@
 #ifndef ARCH_SOUND_H
 #define ARCH_SOUND_H
 
-#include "../SoundChips/AudioMixer.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "AudioMixer.h"
 
 void archSoundCreate(Mixer* mixer, UInt32 sampleRate, UInt32 bufferSize, Int16 channels);
 void archSoundDestroy(void);
@@ -41,10 +37,6 @@ void archSoundSuspend(void);
 #ifdef WII
 void soundCallibrate(void);
 void soundRestart(int time);
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 #endif

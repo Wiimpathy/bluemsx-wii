@@ -26,10 +26,10 @@
 ******************************************************************************
 */
 #include "MsxMouse.h"
-#include "../Input/InputEvent.h"
-#include "../Arch/ArchInput.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
+#include "InputEvent.h"
+#include "ArchInput.h"
+#include "Board.h"
+#include "SaveState.h"
 
 #include <stdlib.h>
 

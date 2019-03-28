@@ -26,11 +26,11 @@
 ******************************************************************************
 */
 #include "romMapperTurboRTimer.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Board/Board.h"
-#include "../Memory/IoPort.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "Board.h"
+#include "IoPort.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

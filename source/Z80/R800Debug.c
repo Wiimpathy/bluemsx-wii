@@ -29,14 +29,14 @@
 **
 ******************************************************************************
 */
-#include "../Z80/R800Debug.h"
-#include "../Memory/SlotManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Language/Language.h"
+#include "R800Debug.h"
+#include "SlotManager.h"
+#include "DebugDeviceManager.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../Board/Board.h"
+#include "Board.h"
 
 
 extern void debuggerTrace(const char* str);

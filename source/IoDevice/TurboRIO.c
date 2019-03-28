@@ -26,13 +26,13 @@
 ******************************************************************************
 */
 #include "TurboRIO.h"
-#include "../Memory/IoPort.h"
-#include "../Board/Board.h"
-#include "../IoDevice/Led.h"
-#include "../IoDevice/Switches.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Language/Language.h"
+#include "IoPort.h"
+#include "Board.h"
+#include "Led.h"
+#include "Switches.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "Language.h"
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>

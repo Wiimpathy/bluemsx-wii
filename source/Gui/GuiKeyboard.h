@@ -2,43 +2,44 @@
 #ifndef _GUI_KEYBOARD_H
 #define _GUI_KEYBOARD_H
 
-#include "../GuiBase/GuiElement.h"
-#include "../GuiBase/GuiEffectFade.h"
+#include "GuiManager.h"
+#include "DrawableImage.h"
 
-class GuiSprite;
-
-class GuiKeyboard  : public GuiElement {
+class GuiKeyboard {
 public:
-    GuiKeyboard(GuiContainer *parent, const char *name);
+    GuiKeyboard(GuiManager *man);
     virtual ~GuiKeyboard();
 
     void Show(void);
-    void Hide(void);
+    void Remove(void);
     bool IsShowing(void);
     void SetEnabled(bool enable);
     void Render(void);
 
 private:
-    static bool RenderWrapper(void *arg);
+    static void RenderWrapper(void *arg);
 
     bool is_showing;
     bool is_enabled;
     bool is_hidden;
-    float xpos;
-    float ypos;
-    float xsize;
-    float ysize;
+    int xpos;
+    int ypos;
+    int xsize;
+    int ysize;
     float xscale;
     float yscale;
     int keymap1;
     int keymap2;
 
-    GuiSprite *spr_image;
-    GuiSprite *spr_cursor;
-    GuiSprite *spr_hover;
-    GuiSprite *spr_pressed;
-    GuiEffectFade effectDefault;
+    GuiManager *manager;
+    DrawableImage *img_hover;
+    DrawableImage *img_pressed;
+    Sprite *spr_image;
+    Sprite *spr_cursor;
+    Sprite *spr_hover;
+    Sprite *spr_pressed;
 };
 
 #endif
+
 

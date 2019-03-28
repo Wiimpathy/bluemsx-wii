@@ -28,11 +28,7 @@
 #ifndef ARCH_DIALOG_H
 #define ARCH_DIALOG_H
 
-#include "../Emulator/Properties.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "Properties.h"
 
 void archShowPropertiesDialog(PropPage page);
 void archShowLanguageDialog();
@@ -54,9 +50,5 @@ void archShowStartEmuFailDialog();
 void archMaximizeWindow();
 void archMinimizeWindow();
 void archCloseWindow();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

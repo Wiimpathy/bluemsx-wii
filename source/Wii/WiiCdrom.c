@@ -25,8 +25,8 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchCdrom.h"
-#include "../IoDevice/ScsiDefs.h"
+#include "ArchCdrom.h"
+#include "ScsiDefs.h"
 #include <stdlib.h>
 
 struct ArchCdrom {

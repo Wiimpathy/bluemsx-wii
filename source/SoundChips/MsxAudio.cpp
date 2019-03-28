@@ -30,11 +30,11 @@
 #include "OpenMsxY8950.h"
 
 extern "C" {
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
 }
 
 #define FREQUENCY        3579545

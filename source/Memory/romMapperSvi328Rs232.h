@@ -29,7 +29,7 @@
 #ifndef SVI328_RS232_H
 #define SVI328_RS232_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef enum { SVI328_RS232, SVI328_MODEM } Svi328UartConnector;
 

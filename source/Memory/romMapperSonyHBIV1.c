@@ -27,12 +27,12 @@
 */
 
 #include "romMapperSonyHBIV1.h"
-#include "../Media/MediaDb.h"
-#include "../Board/Board.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Arch/ArchVideoIn.h"
-#include "../Utils/SaveState.h"
+#include "MediaDb.h"
+#include "Board.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "ArchVideoIn.h"
+#include "SaveState.h"
 #include <stdlib.h>
 #include <string.h>
 

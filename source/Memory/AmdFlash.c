@@ -26,8 +26,8 @@
 ******************************************************************************
 */
 #include "AmdFlash.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/sramLoader.h"
+#include "SaveState.h"
+#include "sramLoader.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

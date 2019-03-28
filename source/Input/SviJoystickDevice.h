@@ -28,7 +28,7 @@
 #ifndef SVI_JOYSTICK_DEVICE_H
 #define SVI_JOYSTICK_DEVICE_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 // Base class for SVI Joystick devices. 
 

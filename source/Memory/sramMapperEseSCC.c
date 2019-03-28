@@ -74,14 +74,14 @@
  */
 #include "sramMapperEseSCC.h"
 #include "MegaSCSIsub.h"
-#include "../IoDevice/MB89352.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../SoundChips/SCC.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/sramLoader.h"
+#include "MB89352.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "SCC.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "sramLoader.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -483,7 +483,7 @@ int sramMapperEseSCCCreate(char* filename, UInt8* buf, int size, int pSlot, int 
 
 #ifdef ESESCCDEBUG
     if (!logNo) {
-        logFd = archFileOpen(ESESCCDEBUG, "w");
+        logFd = fopen(ESESCCDEBUG, "w");
     }
     DBGLOG2("%s %d: create\n", wavescsiName[rm->type], logNo);
     if (strlen(filename)) {

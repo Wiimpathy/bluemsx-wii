@@ -26,13 +26,13 @@
 ******************************************************************************
 */
 #include "romMapperOpcodePsg.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../SoundChips/AY8910.h"
-#include "../Board/Board.h"
-#include "../Memory/IoPort.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SaveState.h"
+#include "AY8910.h"
+#include "Board.h"
+#include "IoPort.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

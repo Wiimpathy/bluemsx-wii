@@ -29,7 +29,7 @@
 #ifndef SVI80_COL_H
 #define SVI80_COL_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 void svi80colMemWrite(UInt16 address, UInt8 value);
 UInt8 svi80colMemRead(UInt16 address);

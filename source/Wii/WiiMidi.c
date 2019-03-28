@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchMidi.h"
+#include "ArchMidi.h"
 #include <stdlib.h>
 
 void archMidiEnable(int enable) {}

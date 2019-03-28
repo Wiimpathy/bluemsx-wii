@@ -28,11 +28,7 @@
 #ifndef ARCH_VIDEO_IN_H
 #define ARCH_VIDEO_IN_H
 
-#include "../Common/MsxTypes.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MsxTypes.h"
 
 int archVideoInIsVideoConnected();
 
@@ -43,9 +39,5 @@ UInt16* archVideoInBufferGet(int width, int height);
 
 // Saves video capture to file (really not video in :/)
 void archVideoCaptureSave();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

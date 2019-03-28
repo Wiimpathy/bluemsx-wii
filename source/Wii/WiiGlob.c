@@ -29,7 +29,7 @@
 */
 #if 1
 
-#include "../Arch/ArchGlob.h"
+#include "ArchGlob.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -48,8 +48,8 @@ typedef void* HANDLE;
 
 typedef struct {
     // Private
-    DIR_ITER *dirPointer;
-    struct stat fileStat;
+	DIR *dirPointer;
+	int isdir;
 	char cPattern[MAX_PATH + 1];
 	// Public
 	char cFileName[MAX_PATH + 1];
@@ -74,7 +74,7 @@ void FindClose(HANDLE handle)
         return;
 	}
 	// Pass the DIR_ITER pointer to libfat and shut 'er down.
-	(void)dirclose(wfd->dirPointer);
+    (void)closedir(wfd->dirPointer);
 	wfd->dirPointer = NULL;
 }
 
@@ -87,12 +87,26 @@ int FindNextFile(HANDLE handle, WIN32_FIND_DATA *wfd)
         return 0;
 	}
 
-	for(;;) {
-		if(dirnext(wfd->dirPointer, wfd->cFileName, &wfd->fileStat) != 0)
+    struct dirent *entry = readdir(wfd->dirPointer);
+
+
+    for(;;) {
+		if(entry == NULL )
 		{
             //fprintf(stderr, "No\n");
 			return 0; // No more files found
 		}else{
+
+            snprintf(wfd->cFileName, sizeof(wfd->cFileName), "%s", entry->d_name);
+            if (entry->d_type == DT_DIR)
+            {
+                wfd->isdir = 1;
+            }
+            else
+            {
+                wfd->isdir = 0;
+            }
+
 			// Pattern validation
 			//fprintf(stderr, "Matching '%s' with '%s' ... ", wfd->cPattern, wfd->cFileName);
 			char *pp = wfd->cPattern;
@@ -114,8 +128,9 @@ int FindNextFile(HANDLE handle, WIN32_FIND_DATA *wfd)
 					return 1; // Match
 				}
 			}
-		}
-	}
+        }
+        entry = readdir(wfd->dirPointer);
+    }
     //fprintf(stderr, "Error\n");
 	return 0; // never get here
 }
@@ -125,7 +140,7 @@ HANDLE FindFirstFile(const char *pattern, WIN32_FIND_DATA *wfd)
     char current_dir[MAX_PATH+1] = "/";
 
     (void)getcwd(current_dir, sizeof(current_dir));
-    wfd->dirPointer = diropen(current_dir);
+    wfd->dirPointer = opendir(current_dir);
 	if( wfd->dirPointer == NULL ) {
 		fprintf(stderr, "Could not open directory '%s'!\n", current_dir);
 		return NULL; // diropen sets errno for us, so just return NULL.
@@ -150,7 +165,8 @@ DWORD GetFileAttributesWfd(WIN32_FIND_DATA *wfd)
         return 0;
 	}
     //fprintf(stderr, "<%X>", wfd->fileStat.st_mode);
-    if( wfd->fileStat.st_mode & S_IFDIR ) {
+
+    if( wfd->isdir == 1 ) {
         attr |= FILE_ATTRIBUTE_DIRECTORY;
     }
 
@@ -196,7 +212,7 @@ ArchGlob* archGlob(const char* pattern, int flags)
             continue;
         }
         //fprintf(stderr, "found '%s' ... ", wfd.cFileName);
-        fa = GetFileAttributesWfd(&wfd);
+		fa = GetFileAttributesWfd(&wfd);
         if (((flags & ARCH_GLOB_DIRS) && (fa & FILE_ATTRIBUTE_DIRECTORY) != 0) ||
             ((flags & ARCH_GLOB_FILES) && (fa & FILE_ATTRIBUTE_DIRECTORY) == 0))
         {
@@ -212,6 +228,7 @@ ArchGlob* archGlob(const char* pattern, int flags)
         }else{
             //fprintf(stderr, "bad attr (%d, %d)\n", flags, fa);
         }
+        //archThreadSleep(1000);
     } while (FindNextFile(handle, &wfd));
 
     FindClose(handle);
@@ -232,14 +249,16 @@ void archGlobFree(ArchGlob* globHandle)
     for (i = 0; i < globHandle->count; i++) {
         free(globHandle->pathVector[i]);
     }
-    free(globHandle->pathVector);
+
+    if(globHandle->pathVector)
+        free(globHandle->pathVector);
     free(globHandle);
 }
 
 #else
 #ifdef WINDOWS_HOST
 
-#include "../Arch/ArchGlob.h"
+#include "ArchGlob.h"
 #include <windows.h>
 #include <stdlib.h>
 
@@ -320,7 +339,7 @@ void archGlobFree(ArchGlob* globHandle)
 
 #else
 
-#include "../Arch/ArchGlob.h"
+#include "ArchGlob.h"
 #include "glob.h"
 #include <stdlib.h>
 #include <string.h>

@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchPrinter.h"
+#include "ArchPrinter.h"
 
 void archPrinterWrite(UInt8 value)
 {

@@ -28,7 +28,7 @@
 #ifndef WD33C93_H
 #define WD33C93_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct WD33C93 WD33C93;
 

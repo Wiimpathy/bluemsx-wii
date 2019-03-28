@@ -28,13 +28,9 @@
 #ifndef ACTIONS_H
 #define ACTIONS_H
 
-#include "../Emulator/Properties.h"
-#include "../VideoRender/VideoRender.h"
-#include "../SoundChips/AudioMixer.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "Properties.h"
+#include "VideoRender.h"
+#include "AudioMixer.h"
 
 void actionInit(Video* video, Properties* properties, Mixer* mixer);
 void actionSetAudioCaptureSetDirectory(char* dir, char* prefix);
@@ -232,10 +228,6 @@ void actionRenshaSetLevel(int value);
 void actionEmuSpeedSet(int value);
 
 void actionKeyPress(int keyCode, int pressed);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

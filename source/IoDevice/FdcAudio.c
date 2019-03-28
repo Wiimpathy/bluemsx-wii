@@ -26,9 +26,8 @@
 ******************************************************************************
 */
 #include "FdcAudio.h"
-#include "../Arch/ArchFile.h"
-#include "../Board/Board.h"
-#include "../SoundChips/SamplePlayer.h"
+#include "Board.h"
+#include "SamplePlayer.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -3457,7 +3456,7 @@ struct FdcAudio {
 static void loadSample(char* filename, Int16** samples, Int32* count,
                        Int16* defSamples, Int32 defCount)
 {
-    FILE* f = archFileOpen(filename, "rb"); // Try read 16 bit 44.1kHz mono sample
+    FILE* f = fopen(filename, "rb"); // Try read 16 bit 44.1kHz mono sample
     if (f != NULL) {
         while (!feof(f)) {
             UInt32 data = 0;

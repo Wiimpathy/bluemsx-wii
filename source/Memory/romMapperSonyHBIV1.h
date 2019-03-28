@@ -29,7 +29,7 @@
 #ifndef SONY_HBI_V1_H
 #define SONY_HBI_V1_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperSonyHbiV1Create(char* filename, UInt8* romData, int size,
                              int slot, int sslot, int startPage);

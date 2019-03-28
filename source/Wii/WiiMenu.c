@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchMenu.h"
+#include "ArchMenu.h"
 
 void archUpdateMenu(int show) {}
 

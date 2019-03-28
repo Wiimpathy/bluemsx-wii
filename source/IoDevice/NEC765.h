@@ -28,7 +28,7 @@
 #ifndef NEC765_H
 #define NEC765_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct NEC765 NEC765;
 

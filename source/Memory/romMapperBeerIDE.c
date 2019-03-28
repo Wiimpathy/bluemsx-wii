@@ -26,16 +26,16 @@
 ******************************************************************************
 */
 #include "romMapperBeerIDE.h"
-#include "../IoDevice/HarddiskIDE.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../IoDevice/I8255.h"
-#include "../IoDevice/Disk.h"
-#include "../Language/Language.h"
+#include "HarddiskIDE.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "I8255.h"
+#include "Disk.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -146,7 +146,7 @@ static UInt8 readA(RomMapperBeerIde* rm)
 
 static UInt8 readB(RomMapperBeerIde* rm)
 {
-    return (UInt8)(rm->ideData >> 8);
+    return (UInt8)rm->ideData >>8;
 }
 
 static void writeA(RomMapperBeerIde* rm, UInt8 value)

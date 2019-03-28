@@ -29,19 +29,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../Arch/ArchFile.h"
-#include "../Utils/IniFileParser.h"
-#include "../Utils/StrcmpNoCase.h"
-#include "../Emulator/Properties.h"
-#include "../Board/Machine.h"
-#include "../Language/Language.h"
-#include "../Input/JoystickPort.h"
-#include "../Board/Board.h"
-#include "../Emulator/AppConfig.h"
+#include "IniFileParser.h"
+#include "StrcmpNoCase.h"
+#include "Properties.h"
+#include "Machine.h"
+#include "Language.h"
+#include "JoystickPort.h"
+#include "Board.h"
+#include "AppConfig.h"
 
 
 // PacketFileSystem.h Need to be included after all other includes
-#include "../Utils/PacketFileSystem.h"
+#include "PacketFileSystem.h"
 
 static char settFilename[512];
 static char histFilename[512];
@@ -355,7 +354,7 @@ void propInitDefaults(Properties* properties, int langType, PropKeyboardLanguage
     
     properties->joystick.POV0isAxes    = 0;
     
-#ifdef BLUEMSXWII
+#ifdef WII
     // Use joystick by default
     strcpy(properties->joy1.type, "joystick");
     properties->joy1.typeId            = JOYSTICK_PORT_JOYSTICK;
@@ -984,7 +983,7 @@ void propertiesSetDirectory(const char* defDir, const char* altDir)
     FILE* f;
 
     sprintf(settFilename, "bluemsx.ini", defDir);
-    f = archFileOpen(settFilename, "r");
+    f = fopen(settFilename, "r");
     if (f != NULL) {
         fclose(f);
     }
@@ -993,7 +992,7 @@ void propertiesSetDirectory(const char* defDir, const char* altDir)
     }
 
     sprintf(histFilename, "bluemsx_history.ini", defDir);
-    f = archFileOpen(histFilename, "r");
+    f = fopen(histFilename, "r");
     if (f != NULL) {
         fclose(f);
     }
@@ -1018,7 +1017,7 @@ Properties* propCreate(int useDefault, int langType, PropKeyboardLanguage kbdLan
     if (!useDefault) {
         propLoad(properties);
     }
-#ifndef BLUEMSXWII
+#ifndef WII
     // Verify machine name
     {
         char** machineNames = machineGetAvailable(1);

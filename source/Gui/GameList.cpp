@@ -1,11 +1,10 @@
-
-#include "GameList.h"
-
 #include <stdio.h>
 #include <string.h>
-
-#include "../Utils/xmlwriter.h"
-#include "../Input/InputEvent.h"
+#include <fat.h>
+#include "GameList.h"
+extern "C" {
+#include "InputEvent.h"
+}
 
 /*************************************************
   Game List
@@ -47,9 +46,9 @@ void XMLCALL GameList::startElement(void *userData, const char *name, const char
                 if( val != NULL ) {
                     int event = inputEventStringToCode(val);
                     if( event ) {
-                        for(int k = 1; k < BTN_LAST; k++) {
-                            if( InputDevices::CheckButtonName((BTN)k, key) ) {
-                                my->current_element->SetKeyMapping((BTN)k, event);
+                        for(int k = 1; k < KEY_LAST; k++) {
+                            if( KBD_CheckKeyName((KEY)k, key) ) {
+                                my->current_element->SetKeyMapping((KEY)k, event);
                             }
                         }
                     }
@@ -62,19 +61,36 @@ void XMLCALL GameList::startElement(void *userData, const char *name, const char
                 const char *key = atts[i];
                 const char *val = atts[i+1];
                 if( strcmp("KeyboardJoystick", key)==0 && strcmp("true", val)==0 ) {
-                    my->current_element->SetProperty(GEP_KEYBOARD_JOYSTICK, true);
+                    /* Remap WiiMote 1 to keyboard */
+                    my->current_element->SetKeyMapping(KEY_JOY1_WIIMOTE_A, EC_SPACE);
+                    my->current_element->SetKeyMapping(KEY_JOY1_WIIMOTE_B, EC_NONE);
+                    my->current_element->SetKeyMapping(KEY_JOY1_WIIMOTE_1, EC_NONE);
+                    my->current_element->SetKeyMapping(KEY_JOY1_WIIMOTE_2, EC_SPACE);
+                    my->current_element->SetKeyMapping(KEY_JOY1_CLASSIC_A, EC_SPACE);
+                    my->current_element->SetKeyMapping(KEY_JOY1_CLASSIC_B, EC_NONE);
+                    my->current_element->SetKeyMapping(KEY_JOY1_UP, EC_UP);
+                    my->current_element->SetKeyMapping(KEY_JOY1_DOWN, EC_DOWN);
+                    my->current_element->SetKeyMapping(KEY_JOY1_LEFT, EC_LEFT);
+                    my->current_element->SetKeyMapping(KEY_JOY1_RIGHT, EC_RIGHT);
+                    /* Remap WiiMote 2 to joystick 1 */
+                    my->current_element->SetKeyMapping(KEY_JOY2_WIIMOTE_A, EC_JOY1_BUTTON1);
+                    my->current_element->SetKeyMapping(KEY_JOY2_WIIMOTE_B, EC_JOY1_BUTTON2);
+                    my->current_element->SetKeyMapping(KEY_JOY2_WIIMOTE_1, EC_JOY1_BUTTON2);
+                    my->current_element->SetKeyMapping(KEY_JOY2_WIIMOTE_2, EC_JOY1_BUTTON1);
+                    my->current_element->SetKeyMapping(KEY_JOY2_CLASSIC_A, EC_SPACE);
+                    my->current_element->SetKeyMapping(KEY_JOY2_CLASSIC_B, EC_NONE);
+                    my->current_element->SetKeyMapping(KEY_JOY2_UP, EC_JOY1_UP);
+                    my->current_element->SetKeyMapping(KEY_JOY2_DOWN, EC_JOY1_DOWN);
+                    my->current_element->SetKeyMapping(KEY_JOY2_LEFT, EC_JOY1_LEFT);
+                    my->current_element->SetKeyMapping(KEY_JOY2_RIGHT, EC_JOY1_RIGHT);
                 }
             }
-        }
-        if( strcmp("CheatFile", name)==0 ) {
-            my->current_container = CONTAINER_CHEATFILE;
         }
         break;
     case CONTAINER_COMMANDLINE:
     case CONTAINER_SCREENSHOT:
     case CONTAINER_KEYMAP:
     case CONTAINER_SETTINGS:
-    case CONTAINER_CHEATFILE:
         break;
     }
 }
@@ -125,13 +141,6 @@ void XMLCALL GameList::endElement(void *userData, const char *name)
             my->receiving_string = NULL;
         }
         break;
-    case CONTAINER_CHEATFILE:
-        my->current_container = CONTAINER_GAME;
-        my->current_element->SetCheatFile(my->receiving_string);
-        if( my->receiving_string != NULL ) {
-            free(my->receiving_string);
-            my->receiving_string = NULL;
-        }
     case CONTAINER_KEYMAP:
     case CONTAINER_SETTINGS:
         my->current_container = CONTAINER_GAME;
@@ -170,14 +179,18 @@ void XMLCALL GameList::dataHandler(void *userData, const XML_Char *s, int len)
     }
 }
 
-unsigned GameList::CalcCRC(unsigned crc)
+int GameList::GetNumberOfGames(void)
+{
+    return elements;
+}
+
+GameElement* GameList::GetGame(int index)
 {
     GameElement *p = first_element;
-    while( p ) {
-        crc = p->CalcCRC(crc);
+    while(p && index--) {
         p = p->next;
     }
-    return crc;
+    return p;
 }
 
 int GameList::Load(const char *filename)
@@ -215,47 +228,6 @@ int GameList::Load(const char *filename)
     return elements;
 }
 
-void GameList::Save(const char *filename)
-{
-    XmlWriter MyXml(filename);
-
-    MyXml.CreateTag("GameList");
-
-    GameElement *p = first_element;
-    while( p ) {
-        MyXml.AddAtributes("Title", p->GetName()); 
-        MyXml.CreateTag("Game");
-        
-        MyXml.CreateChild("CommandLine", p->GetCommandLine());
-
-        if( p->GetProperty(GEP_KEYBOARD_JOYSTICK) ) {
-            MyXml.AddAtributes("KeyboardJoystick","true"); 
-            MyXml.CreateTag("Settings", true);
-        }
-
-        bool keymaps = false;
-        for(int k = 1; k < BTN_LAST; k++) {
-            int event = p->GetKeyMapping((BTN)k);
-            if( event != EC_NONE ) {
-                MyXml.AddAtributes(InputDevices::GetButtonName((BTN)k), inputEventCodeToString(event));
-                keymaps = true;
-            }
-        }
-        if( keymaps ) {
-            MyXml.CreateTag("KeyMap", true);
-        }
-        
-        MyXml.CreateChild("ScreenShot", p->GetScreenShot(0));
-        MyXml.CreateChild("ScreenShot", p->GetScreenShot(1));
-        
-        MyXml.CloseLastTag(); // close 'Game'
-
-        p = p->next;
-    }
-
-    MyXml.CloseAllTags();
-}
-
 void GameList::Clear(void)
 {
     // Free list
@@ -280,83 +252,6 @@ void GameList::Clear(void)
     }
 }
 
-int GameList::GetNumberOfGames(void)
-{
-    return elements;
-}
-
-GameElement* GameList::GetGame(int index)
-{
-    GameElement *p = first_element;
-    while(p && index--) {
-        p = p->next;
-    }
-    return p;
-}
-
-GameElement* GameList::RemoveFromList(int index)
-{
-    GameElement *p = first_element;
-    GameElement *retval = NULL;
-    if( index == 0 ) {
-        if( first_element ) {
-            elements--;
-            retval = first_element;
-            first_element = first_element->next;
-        }
-    }else{
-        while( p && --index ) {
-            p = p->next;
-        }
-        if( p && p->next ) {
-            elements--;
-            retval = p->next;
-            p->next = p->next->next;
-        }
-    }
-    return retval;
-}
-
-bool GameList::AddToList(int index, GameElement *element)
-{
-    if( !element ) {
-        return false;
-    }
-    if( index == 0 ) {
-        element->next = first_element;
-        first_element = element;
-    }else{
-        GameElement *p = first_element;
-        while( p && p->next && --index ) {
-            p = p->next;
-        }
-        element->next = p->next;
-        p->next = element;
-    }
-    elements++;
-    return true;
-}
-
-void GameList::DeleteItem(int index)
-{
-    GameElement *element = RemoveFromList(index);
-    if( element != NULL ) {
-        delete element;
-    }
-}
-
-void GameList::MoveUp(int index)
-{
-    if( index > 0 ) {
-        AddToList(index - 1, RemoveFromList(index));
-    }
-}
-
-void GameList::MoveDown(int index)
-{
-    AddToList(index + 1, RemoveFromList(index));
-}
-
 GameList::GameList()
 {
     // Init member variables
@@ -372,3 +267,4 @@ GameList::~GameList()
 {
     Clear();
 }
+

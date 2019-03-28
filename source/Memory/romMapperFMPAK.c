@@ -26,15 +26,15 @@
 ******************************************************************************
 */
 #include "romMapperFMPAK.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/IoPort.h"
-#include "../Board/Board.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../SoundChips/YM2413.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
+#include "MediaDb.h"
+#include "IoPort.h"
+#include "Board.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "YM2413.h"
+#include "SaveState.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

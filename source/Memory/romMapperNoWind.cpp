@@ -30,21 +30,20 @@ extern "C" {
 
 #include "romMapperNoWind.h"
 #include "AmdFlash.h"
-#include "../Arch/ArchFile.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/SlotManager.h"
-#include "../Memory/DeviceManager.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/sramLoader.h"
-#include "../Emulator/Properties.h"
+#include "MediaDb.h"
+#include "SlotManager.h"
+#include "DeviceManager.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "sramLoader.h"
+#include "Properties.h"
 
 #include <stdlib.h>
 #include <string.h>
 
 #ifdef USE_NOWIND_DLL
-#include "../IoDevice/Disk.h"
-#include "../Emulator/Properties.h"
+#include "Disk.h"
+#include "Properties.h"
 #include <windows.h>
 
 static int DeviceIds[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -174,7 +173,7 @@ static void diskInsert(RomMapperNoWind* rm, int driveId, int driveNo)
 
     UInt8 header[512];
 
-    f = archFileOpen(disk->fileName, "rb");
+    f = fopen(disk->fileName, "rb");
     if (f == NULL) {
         rm->deviceId[driveNo] = -1;
         return;
@@ -251,10 +250,11 @@ static void loadState(void* _rm)
 static void destroy(void* _rm)
 {
     RomMapperNoWind* rm = (RomMapperNoWind*)_rm;
+    int i;
 
     amdFlashDestroy(rm->amdFlash);
 #ifdef USE_NOWIND_DLL
-    for (int i = 0; i < 4; i++) {
+    for (i = 0; i < 4; i++) {
         if (rm->deviceId[i] != -1) {
             deviceIdFree(rm->deviceId[i]);
         }
@@ -330,6 +330,7 @@ int romMapperNoWindCreate(int driveId, char* filename, UInt8* romData,
     NoWindProperties* prop = &propGetGlobalProperties()->nowind;
     DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
     RomMapperNoWind* rm;
+    int i;
 
     rm = (RomMapperNoWind*)malloc(sizeof(RomMapperNoWind));
 
@@ -358,7 +359,7 @@ int romMapperNoWindCreate(int driveId, char* filename, UInt8* romData,
         nowindusb_set_debug_callback(debugCb);
     }
 
-    for (int i = 0; i < 4; i++) {
+    for (i = 0; i < 4; i++) {
         diskInsert(rm, driveId, i);
     }
 #endif

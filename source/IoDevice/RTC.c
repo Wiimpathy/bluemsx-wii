@@ -26,12 +26,11 @@
 ******************************************************************************
 */
 #include "RTC.h"
-#include "../Arch/ArchFile.h"
-#include "../Memory/IoPort.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Language/Language.h"
+#include "IoPort.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "DebugDeviceManager.h"
+#include "Language.h"
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
@@ -323,7 +322,7 @@ RTC* rtcCreate(int enable, char* cmosName)
 
         strcpy(rtc->cmosName, cmosName);
 
-        file = archFileOpen(cmosName, "r");
+        file = fopen(cmosName, "r");
 
         if (file != NULL) {
             fread(rtc->registers, 1, sizeof(rtc->registers), file);
@@ -364,7 +363,7 @@ void rtcDestroy(RTC* rtc)
     ioPortUnregister(0xb5);
 
     if (rtc->cmosName[0]) {
-        FILE* file = archFileOpen(rtc->cmosName, "w");
+        FILE* file = fopen(rtc->cmosName, "w");
 
         fwrite(rtc->registers, 1, sizeof(rtc->registers), file);
 

@@ -28,9 +28,9 @@
 #ifndef PROPERTIES_H
 #define PROPERTIES_H
 
-#include "../SoundChips/AudioMixer.h"
-#include "../VideoRender/VideoRender.h"
-#include "../Media/MediaDb.h"
+#include "AudioMixer.h"
+#include "VideoRender.h"
+#include "MediaDb.h"
 
 #define PROP_MAX_DISKS  34
 #define PROP_MAX_CARTS  2
@@ -264,7 +264,7 @@ typedef struct {
     int enable;
     int volume;
     int pan;
-} MixerChn;
+} MixerChannel;
 
 typedef struct {
     int enableY8950;
@@ -284,7 +284,7 @@ typedef struct {
     int  stereo;
     int  masterVolume;
     int  masterEnable;
-    MixerChn mixerChannel[MIXER_CHANNEL_TYPE_COUNT];
+    MixerChannel mixerChannel[MIXER_CHANNEL_TYPE_COUNT];
     int  log[PROP_MAXPATH];
     struct {
         int  type;
@@ -309,7 +309,7 @@ typedef struct {
 } SoundProperties;
 
 typedef struct {
-    int POV0isAxes;
+	int POV0isAxes;
 } JoystickGeneric;
 
 typedef struct {
@@ -438,10 +438,6 @@ typedef struct Properties {
     NoWindProperties    nowind;
 } Properties;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 Properties* propCreate(int useDefault, 
                        int langType, 
                        PropKeyboardLanguage kbdLang, 
@@ -454,9 +450,5 @@ void propDestroy(Properties* pProperties);
 void propertiesSetDirectory(const char* defDir, const char* altDir);
 
 Properties* propGetGlobalProperties();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

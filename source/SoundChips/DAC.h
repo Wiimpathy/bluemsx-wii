@@ -30,8 +30,8 @@
 
 #include <stdio.h>
 
-#include "../Common/MsxTypes.h"
-#include "../SoundChips/AudioMixer.h"
+#include "MsxTypes.h"
+#include "AudioMixer.h"
 
 /* Type definitions */
 typedef struct DAC DAC;

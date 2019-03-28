@@ -28,7 +28,7 @@
 #ifndef MSX_JOYSTICK_H
 #define MSX_JOYSTICK_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 #include "MsxJoystickDevice.h"
 
 typedef struct MsxJoystick MsxJoystick;

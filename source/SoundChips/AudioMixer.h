@@ -28,7 +28,7 @@
 #ifndef AUDIO_MIXER_H
 #define AUDIO_MIXER_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 /* Type definitions */
 typedef struct Mixer Mixer;
@@ -61,10 +61,6 @@ typedef enum {
 
 typedef Int32* (*MixerUpdateCallback)(void*, UInt32);
 typedef Int32 (*MixerWriteCallback)(void*, Int16*, UInt32);
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /* Constructor and destructor */
 Mixer* mixerCreate();
@@ -102,10 +98,6 @@ void mixerUnregisterChannel(Mixer* mixer, Int32 handle);
 
 void mixerSetBoardFrequency(int CPUFrequency);
 void mixerSetBoardFrequencyFixed(int CPUFrequency);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

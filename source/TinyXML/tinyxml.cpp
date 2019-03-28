@@ -25,8 +25,6 @@ distribution.
 #include <ctype.h>
 #include "tinyxml.h"
 
-#include "../Arch/ArchFile.h"
-
 #ifdef TIXML_USE_STL
 #include <sstream>
 #endif
@@ -805,7 +803,7 @@ bool TiXmlDocument::LoadFile( const char* filename, TiXmlEncoding encoding )
 	// Fixed with the StringToBuffer class.
 	value = filename;
 
-	FILE* file = archFileOpen( value.c_str (), "r" );
+	FILE* file = fopen( value.c_str (), "r" );
 
 	if ( file )
 	{
@@ -850,7 +848,7 @@ bool TiXmlDocument::LoadFile( const char* filename, TiXmlEncoding encoding )
 bool TiXmlDocument::SaveFile( const char * filename ) const
 {
 	// The old c stuff lives on...
-	FILE* fp = archFileOpen( filename, "w" );
+	FILE* fp = fopen( filename, "w" );
 	if ( fp )
 	{
 		Print( fp, 0 );

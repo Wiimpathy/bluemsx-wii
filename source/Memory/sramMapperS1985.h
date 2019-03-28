@@ -28,7 +28,7 @@
 #ifndef SRAMMAPPER_S1985_H
 #define SRAMMAPPER_S1985_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int sramMapperS1985Create();
 

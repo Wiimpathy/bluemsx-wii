@@ -15,9 +15,9 @@
 #include <stdarg.h>
 #include <math.h>
 #include "Fmopl.h"
-#include "../IoDevice/Switches.h"
-#include "../Utils/SaveState.h"
-#include "../Board/Board.h"
+#include "Switches.h"
+#include "SaveState.h"
+#include "Board.h"
 
 #ifndef	PI
 #define	PI 3.14159265358979323846

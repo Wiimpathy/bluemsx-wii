@@ -26,7 +26,7 @@
 ******************************************************************************
 */
 #include "InputEvent.h"
-#include "../Arch/ArchInput.h"
+#include "ArchInput.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -216,7 +216,6 @@ static void initKeyNameTable()
     eventNames[EC_HOT_WINDOW_SIZE_NORMAL]       = "hotkey_window_size_normal";
     eventNames[EC_HOT_WINDOW_SIZE_FULLSCREEN]   = "hotkey_window_size_fullscreen";
     eventNames[EC_HOT_FULLSCREEN_TOGGLE]        = "hotkey_fullscreen_toggle";
-    eventNames[EC_HOT_SHOW_TRAINER]             = "hotkey_show_trainer";
 }
 
 int inputEventStringToCode(const char* eventName)

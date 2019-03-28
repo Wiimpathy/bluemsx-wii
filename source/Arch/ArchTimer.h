@@ -28,11 +28,7 @@
 #ifndef ARCH_TIMER_H
 #define ARCH_TIMER_H
 
-#include "../Common/MsxTypes.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MsxTypes.h"
 
 UInt32 archGetSystemUpTime(UInt32 frequency);
 void* archCreateTimer(int period, int (*timerCallback)(void*));
@@ -44,9 +40,5 @@ UInt32 archGetHiresTimer();
 void rdtsc_start_timer (int timer) ;
 void rdtsc_end_timer (int timer);
 unsigned long long int rdtsc_get_timer (int timer) ;
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

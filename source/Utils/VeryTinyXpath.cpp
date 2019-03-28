@@ -26,7 +26,7 @@
 ******************************************************************************
 */
 #include "VeryTinyXpath.h"
-#include "../TinyXML/tinyxml.h"
+#include "tinyxml.h"
 #ifdef WII
 #include <string>
 #else

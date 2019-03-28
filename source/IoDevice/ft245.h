@@ -28,7 +28,7 @@
 #ifndef FT245_H
 #define FT245_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct FT245 FT245;
 

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_ASCII16NF_H
 #define ROMMAPPER_ASCII16NF_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperASCII16nfCreate(char* filename, UInt8* romData, 
                              int size, int slot, int sslot, int startPage);

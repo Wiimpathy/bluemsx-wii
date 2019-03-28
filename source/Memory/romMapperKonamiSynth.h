@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_KONAMISYNTH_H
 #define ROMMAPPER_KONAMISYNTH_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperKonamiSynthCreate(char* filename, UInt8* romData, 
                                int size, int slot, int sslot, int startPage);

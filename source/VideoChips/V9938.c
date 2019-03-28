@@ -14,9 +14,9 @@
 #include "V9938.h"
 #include <string.h>
 #include <stdlib.h>
-#include "../VideoChips/VDP.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
+#include "VDP.h"
+#include "Board.h"
+#include "SaveState.h"
 
 /*************************************************************
 ** Different compilers inline C functions differently.

@@ -27,10 +27,7 @@
 **
 ******************************************************************************
 */
-#include <stdio.h>
-
-#include "../Arch/ArchDialog.h"
-#include "WiiToolLoader.h"
+#include "ArchDialog.h"
 
 void archShowPropertiesDialog(PropPage page) {}
 void archShowLanguageDialog() {}
@@ -41,13 +38,7 @@ void archShowShortcutsEditor() {}
 void archShowKeyboardEditor() {}
 void archShowMixer() {}
 void archShowDebugger() {}
-void archShowTrainer()
-{
-    ToolInfo* ti = toolInfoFind("Trainer");
-    if (ti != NULL) {
-        toolInfoShowTool(ti);
-    }
-}
+void archShowTrainer() {}
 void archShowMachineEditor() {}
 
 void archShowNoRomInZipDialog() {}

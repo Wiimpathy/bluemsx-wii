@@ -31,19 +31,11 @@
 #define THREAD_PRIO_NORMAL 0
 #define THREAD_PRIO_HIGH   1
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void* archThreadCreate(void (*entryPoint)(), int priority);
 void* archThreadCreateEx(void (*entryPoint)(), int priority, int stacksize);
 void  archThreadJoin(void* thread, int timeout);
 void  archThreadDestroy(void* thread);
 
 void archThreadSleep(int milliseconds);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

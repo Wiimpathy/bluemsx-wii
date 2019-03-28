@@ -28,8 +28,8 @@
 #ifndef SVI_PPI_H
 #define SVI_PPI_H
 
-#include "../Common/MsxTypes.h"
-#include "../Input/SviJoyIo.h"
+#include "MsxTypes.h"
+#include "SviJoyIo.h"
 
 void sviPPICreate(SviJoyIo* joyIO);
 

@@ -28,7 +28,7 @@
 #ifndef DEBUGGER_H
 #define DEBUGGER_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef struct BlueDebugger    BlueDebugger;
 typedef struct DbgSnapshot DbgSnapshot;

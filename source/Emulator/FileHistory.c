@@ -26,17 +26,17 @@
 ******************************************************************************
 */
 #define USE_ARCH_GLOB
-#include "../Emulator/FileHistory.h"
-#include "../Emulator/Properties.h"
-#include "../Utils/ziphelper.h"
-#include "../Memory/RomLoader.h"
-#include "../Common/MsxTypes.h"
-#include "../Arch/ArchNotifications.h"
-#include "../IoDevice/Disk.h"
-#include "../Emulator/AppConfig.h"
+#include "FileHistory.h"
+#include "Properties.h"
+#include "ziphelper.h"
+#include "RomLoader.h"
+#include "MsxTypes.h"
+#include "ArchNotifications.h"
+#include "Disk.h"
+#include "AppConfig.h"
 #ifdef USE_ARCH_GLOB
-#include "../Arch/ArchGlob.h"
-#include "../Arch/ArchFile.h"
+#include "ArchGlob.h"
+#include "ArchFile.h"
 #endif
 #include <stdio.h>
 #include <sys/stat.h>
@@ -298,14 +298,14 @@ void updateExtendedRomName(int drive, char* filename, char* zipFile) {
 }
 
 void updateExtendedDiskName(int drive, char* filename, char* zipFile) {
+    int size;
+    char* buf;
     char* name;
 
     extendedDiskName[drive][0] = 0;
 
-#ifndef BLUEMSXWII
+#ifndef WII
     if (drive < MAX_FDC_COUNT) {
-        char* buf;
-        int size;
         buf = romLoad(filename, zipFile[0] ? zipFile : NULL, &size);
         if (buf != NULL) {
             strcpy(extendedDiskName[drive], mediaDbGetPrettyString(mediaDbLookupDisk(buf, size)));
@@ -454,8 +454,7 @@ int createSaveFileBaseName(char* fileBase,Properties* properties, int useExtende
                 strcpy(fileBase, extendedDiskName[i]);
             }
             else if (*properties->media.disks[i].fileNameInZip) {
-#ifdef BLUEMSXWII
-                // Use the same name for state files for every disk image within one zip file
+#ifdef WII      // Use the same name for state files for every disk image within one zip file
                 strcpy(fileBase, stripPathExt(properties->media.disks[i].fileName));
 #else
                 strcpy(fileBase, stripPathExt(properties->media.disks[i].fileNameInZip));
@@ -501,7 +500,7 @@ static UInt32 fileWriteTime(const char* filename)
 
   rv = stat(filename, &s);
 
-  return rv < 0 ? 0 : (UInt32)s.st_mtime;
+  return rv < 0 ? 0 : s.st_mtime;
 }
 
 char* generateSaveFilename(Properties* properties, char* directory, char* prefix, char* extension, int digits)

@@ -28,8 +28,8 @@
 #ifndef SC3000_PPI_H
 #define SC3000_PPI_H
 
-#include "../Common/MsxTypes.h"
-#include "../Input/Sg1000JoyIo.h"
+#include "MsxTypes.h"
+#include "Sg1000JoyIo.h"
 
 void sc3000PPICreate(Sg1000JoyIo* joyIo);
 

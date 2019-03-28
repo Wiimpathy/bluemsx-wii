@@ -28,7 +28,7 @@
 #ifndef SCSIDEFS_H
 #define SCSIDEFS_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 // Group 0: 6bytes cdb
 #define SCSIOP_TEST_UNIT_READY      0x00

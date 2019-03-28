@@ -27,10 +27,10 @@
 */
 
 #include "CRTC6845.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Language/Language.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SaveState.h"
+#include "Language.h"
 #include <stdlib.h>
 #include <string.h>
 

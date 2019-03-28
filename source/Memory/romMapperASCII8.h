@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_ASCII8_H
 #define ROMMAPPER_ASCII8_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperASCII8Create(char* filename, UInt8* romData, 
                           int size, int slot, int sslot, int startPage);

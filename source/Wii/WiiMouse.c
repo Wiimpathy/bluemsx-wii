@@ -28,8 +28,8 @@
 ******************************************************************************
 */
 #include "WiiMouse.h"
-#include "../Common/MsxTypes.h"
-#include "../Arch/ArchInput.h"
+#include "MsxTypes.h"
+#include "ArchInput.h"
 
 void archMouseGetState(int* dx, int* dy)
 {

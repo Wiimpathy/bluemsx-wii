@@ -28,10 +28,6 @@
 #ifndef MSXLED_H
 #define MSXLED_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void ledSetAll(int enable);
 
 void ledSetCapslock(int enable);
@@ -60,10 +56,6 @@ int  ledGetHd();
 
 void ledSetCas(int enable);
 int  ledGetCas();
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

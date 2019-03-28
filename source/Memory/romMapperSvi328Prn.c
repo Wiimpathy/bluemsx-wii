@@ -26,13 +26,13 @@
 ******************************************************************************
 */
 #include "romMapperSvi328Prn.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
-#include "../Debugger/DebugDeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../IoDevice/PrinterIO.h"
-#include "../Language/Language.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
+#include "DebugDeviceManager.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "PrinterIO.h"
+#include "Language.h"
 #include <stdlib.h>
 
 typedef struct {

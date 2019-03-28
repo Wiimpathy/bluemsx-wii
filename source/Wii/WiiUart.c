@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchUart.h"
+#include "ArchUart.h"
 
 void archUartTransmit(UInt8 value)
 {

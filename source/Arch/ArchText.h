@@ -30,17 +30,9 @@
 
 typedef struct ArchText ArchText;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 ArchText* archTextCreate(int height, int color, int rightAligned);
 void archTextDestroy(ArchText* text);
 void archTextDraw(ArchText* text, void* dcDest, int xDest, int yDest, 
                   int width, int height, char* string);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

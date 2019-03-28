@@ -28,7 +28,7 @@
 #ifndef I8250_H
 #define I8250_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 typedef int  (*I8250Transmit) (void*, UInt8);
 typedef int  (*I8250Signal) (void*);

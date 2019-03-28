@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_FM_DAS_H
 #define ROMMAPPER_FM_DAS_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperFmDasCreate(char* filename, UInt8* romData, 
                          int size, int slot, int sslot, int startPage);

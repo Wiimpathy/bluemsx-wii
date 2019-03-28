@@ -29,7 +29,7 @@
 #ifndef MSX_RS232_H
 #define MSX_RS232_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMsxRs232Create(char* filename, UInt8* romData, int size, int slot, int sslot, int startPage);
 

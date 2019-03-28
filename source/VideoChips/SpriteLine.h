@@ -367,9 +367,9 @@ UInt8* colorSpritesLine(VDP* vdp, int line, int scr6) {
         return lineBufs[bufIndex ^ 1];
     }
 
-    if ((vdp->vdpStatus[0] & 0xc0) == 0) {
-        vdp->vdpStatus[0] = (vdp->vdpStatus[0] & 0xe0) | (sprite < 32 ? sprite : 31);
-    }
+	if ((vdp->vdpStatus[0] & 0xc0) == 0) {
+		vdp->vdpStatus[0] = (vdp->vdpStatus[0] & 0xe0) | (sprite < 32 ? sprite : 31);
+	}
     
     lineBuf = lineBuffer[bufIndex];
     memset(lineBuf, 0, 384);

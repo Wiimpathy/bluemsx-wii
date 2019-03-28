@@ -28,7 +28,7 @@
 #ifndef MSX_PRN_H
 #define MSX_PRN_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperMsxPrnCreate(void);
 

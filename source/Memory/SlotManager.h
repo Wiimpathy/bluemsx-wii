@@ -28,7 +28,7 @@
 #ifndef SLOT_MANAGER_H
 #define SLOT_MANAGER_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 
 typedef UInt8 (*SlotRead)(void*, UInt16);

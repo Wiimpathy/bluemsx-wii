@@ -28,11 +28,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../Arch/ArchFile.h"
-#include "../Emulator/AppConfig.h"
+#include "AppConfig.h"
 
 // PacketFileSystem.h Need to be included after all other includes
-#include "../Utils/PacketFileSystem.h"
+#include "PacketFileSystem.h"
 
 
 typedef struct
@@ -55,7 +54,7 @@ void appConfigLoad()
         return;
     }
 
-    f = archFileOpen("blueMSX.cfg", "r");
+    f = fopen("blueMSX.cfg", "r");
     if (f == NULL) {
         return;
     }

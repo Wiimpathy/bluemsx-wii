@@ -25,16 +25,19 @@
 **
 ******************************************************************************
 */
-#include "../SoundChips/YM2413.h"
+#include "YM2413.h"
 #include "OpenMsxYM2413.h"
 #include "OpenMsxYM2413_2.h"
 #include <cstring>
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/IoPort.h"
-#include "../Media/MediaDb.h"
-#include "../Memory/DeviceManager.h"
-#include "../Language/Language.h"
+extern "C" {
+#include "Board.h"
+#include "SaveState.h"
+#include "IoPort.h"
+#include "MediaDb.h"
+#include "DeviceManager.h"
+#include "Language.h"
+}
+
 
 #define FREQUENCY        3579545
  
@@ -63,6 +66,8 @@ struct YM_2413 {
     Int32  defaultBuffer[AUDIO_MONO_BUFFER_SIZE];
 };
 
+extern "C" {
+    
 void ym2413SaveState(YM_2413* ref)
 {
     YM_2413* ym2413 = (YM_2413*)ref;
@@ -169,7 +174,7 @@ YM_2413* ym2413Create(Mixer* mixer)
     ym2413->handle = mixerRegisterChannel(mixer, MIXER_CHANNEL_MSXMUSIC, 0, ym2413Sync, ym2413);
 
     ym2413->ym2413->setSampleRate(AUDIO_SAMPLERATE, boardGetYm2413Oversampling());
-    ym2413->ym2413->setVolume(32767 * 9 / 10);
+	ym2413->ym2413->setVolume(32767 * 9 / 10);
 
     return ym2413;
 }
@@ -180,3 +185,6 @@ void ym2413Destroy(YM_2413* ym2413)
     delete ym2413;
 }
 
+
+
+}

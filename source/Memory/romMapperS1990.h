@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_S1990_H
 #define ROMMAPPER_S1990_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperS1990Create();
 

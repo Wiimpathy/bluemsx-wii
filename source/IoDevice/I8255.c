@@ -25,8 +25,8 @@
 **
 ******************************************************************************
 */
-#include "../IoDevice/I8255.h"
-#include "../Utils/SaveState.h"
+#include "I8255.h"
+#include "SaveState.h"
 #include <stdlib.h>
 
 struct I8255
@@ -330,8 +330,8 @@ void i8255Write(I8255* i8255, UInt16 port, UInt8 value)
 **
 ******************************************************************************
 */
-#include "../IoDevice/I8255.h"
-#include "../Utils/SaveState.h"
+#include "I8255.h"
+#include "SaveState.h"
 #include <stdlib.h>
 
 struct I8255

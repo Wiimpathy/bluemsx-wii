@@ -31,22 +31,22 @@
 
 #include "Adam.h"
 
-#include "../Z80/R800.h"
-#include "../Z80/R800Dasm.h"
-#include "../Z80/R800SaveState.h"
-#include "../Z80/R800Debug.h"
+#include "R800.h"
+#include "R800Dasm.h"
+#include "R800SaveState.h"
+#include "R800Debug.h"
 
-#include "../Input/InputEvent.h"
-#include "../SoundChips/SN76489.h"
-#include "../Memory/DeviceManager.h"
-#include "../Utils/SaveState.h"
-#include "../Memory/SlotManager.h"
-#include "../IoDevice/Led.h"
-#include "../IoDevice/Switches.h"
-#include "../Memory/IoPort.h"
-#include "../Memory/MegaromCartridge.h"
-#include "../Input/JoystickPort.h"
-#include "../Input/ColecoJoystick.h"
+#include "InputEvent.h"
+#include "SN76489.h"
+#include "DeviceManager.h"
+#include "SaveState.h"
+#include "SlotManager.h"
+#include "Led.h"
+#include "Switches.h"
+#include "IoPort.h"
+#include "MegaromCartridge.h"
+#include "JoystickPort.h"
+#include "ColecoJoystick.h"
 
 
 /* Hardware */

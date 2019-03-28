@@ -28,9 +28,9 @@
 #ifndef YM2151_H
 #define YM2151_H
 
-#include "../Common/MsxTypes.h"
-#include "../SoundChips/AudioMixer.h"
-#include "../Debugger/DebugDeviceManager.h"
+#include "MsxTypes.h"
+#include "AudioMixer.h"
+#include "DebugDeviceManager.h"
 
 /* Type definitions */
 typedef struct YM2151 YM2151;

@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_FORTE_II_H
 #define ROMMAPPER_FORTE_II_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperForteIICreate(char* filename, UInt8* romData, 
                            int size, int slot, int sslot, int startPage);

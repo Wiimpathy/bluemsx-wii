@@ -28,7 +28,7 @@
 #ifndef ROMMAPPER_ASCII8SRAM_H
 #define ROMMAPPER_ASCII8SRAM_H
  
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 int romMapperASCII8sramCreate(char* filename, UInt8* romData, 
                               int size, int slot, int sslot, int startPage);

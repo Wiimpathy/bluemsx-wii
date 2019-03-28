@@ -28,7 +28,7 @@
 #ifndef APP_CONFIG_H
 #define APP_CONFIG_H
 
-#include "../Common/MsxTypes.h"
+#include "MsxTypes.h"
 
 void appConfigLoad();
 

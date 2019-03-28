@@ -26,7 +26,7 @@
 ******************************************************************************
 */
 #include "IoPort.h"
-#include "../Board/Board.h"
+#include "Board.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

@@ -27,7 +27,7 @@
 **
 ******************************************************************************
 */
-#include "../Arch/ArchVideoIn.h"
+#include "ArchVideoIn.h"
 #include <stdlib.h>
 
 int archVideoInIsVideoConnected() { return 0; }

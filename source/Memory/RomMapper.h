@@ -29,9 +29,9 @@
 #define ROM_MAPPER_H
 
 
-#include "../Media/MediaDb.h"
+#include "MediaDb.h"
 
-#if 0
+#ifndef WII
 const char* romTypeToString(RomType romType) {
     switch (romType) {    
     case ROM_STANDARD:    return "Standard";

@@ -28,11 +28,7 @@
 #ifndef ARCH_ETH_H
 #define ARCH_ETH_H
 
-#include "../Common/MsxTypes.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "MsxTypes.h"
 
 void archEthGetMacAddress(UInt8* macAddress);
 
@@ -41,9 +37,5 @@ void archEthDestroy();
 
 int archEthSendPacket(UInt8* buffer, UInt32 length);
 int archEthRecvPacket(UInt8** buffer, UInt32* length);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif // ARCH_ETH_H

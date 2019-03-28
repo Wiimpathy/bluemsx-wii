@@ -26,8 +26,8 @@
 #ifndef R800_DASM_H
 #define R800_DASM_H
  
-#include "../Common/MsxTypes.h"
-#include "../Z80/R800.h"
+#include "MsxTypes.h"
+#include "R800.h"
 
 void r800ExecuteTrace(R800* r800, UInt32 endTime);
 

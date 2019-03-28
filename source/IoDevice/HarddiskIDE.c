@@ -25,10 +25,10 @@
 **
 ******************************************************************************
 */
-#include "../IoDevice/HarddiskIDE.h"
-#include "../Board/Board.h"
-#include "../Utils/SaveState.h"
-#include "../IoDevice/Disk.h"
+#include "HarddiskIDE.h"
+#include "Board.h"
+#include "SaveState.h"
+#include "Disk.h"
 #include <stdlib.h>
 #include <string.h>
 
